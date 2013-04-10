@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>
+    NewsNibbler.net
+  </title>
+  <meta name="viewport" 
+        content="initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no"/>
+  <style>
+    body.connected #login { display: none; }
+    body.connected #logout { display: block; }
+    body.not_connected #login { display: block; }
+    body.not_connected #logout { display: none; }
+  </style> 
+</head>
+<body>
+  <div id="fb-root"></div>
+  <script>
+  function handleStatusChange(response) {
+      document.body.className = response.authResponse ? 'connected' : 'not_connected';
+      if (response.authResponse) {
+        console.log(response);
+
+        updateUserInfo(response);
+      }
+    }
+  </script>
+  <script>
+    window.fbAsyncInit = function() {
+      FB.init({
+        appId      : '359071470879336', // App ID
+        channelUrl : 'http://newsnibbler.net/static/channel.html', // Channel File
+        status     : true, // check login status
+        cookie     : true, // enable cookies to allow the server to access the session
+        xfbml      : true  // parse XFBML
+      });
+
+      FB.Event.subscribe('auth.statusChange', handleStatusChange);
+    };
+
+  // Load the SDK Asynchronously
+  (function(d){
+     var js, id = 'facebook-jssdk', ref = d.getElementsByTagName('script')[0];
+     if (d.getElementById(id)) {return;}
+     js = d.createElement('script'); js.id = id; js.async = true;
+     js.src = "//connect.facebook.net/en_US/all.js";
+     ref.parentNode.insertBefore(js, ref);
+   }(document));
+</script>
+  <h1>
+    Welcome to NewsNibbler.net! We'll be developing this RSS reader over
+    the next few weeks. Stay tuned to follow our progress!
+  </h1>
+  <div id="login">
+   <p><button onClick="loginUser();">Login</button></p>
+  </div>
+  <div id="logout">
+   <p><button  onClick="FB.logout();">Logout</button></p>
+  </div>
+  <script>
+    function loginUser() {    
+      FB.login(function(response) { }, {scope:'email'});     
+    }
+ </script>
+  <div id="user-info"></div>
+ <script>
+   function updateUserInfo(response) {
+     FB.api('/me', function(response) {
+       document.getElementById('user-info').innerHTML = '<img src="https://graph.facebook.com/' + response.id + '/picture">' + response.name;
+     });
+   }
+ </script>
+ <a href="#list_friends" onclick="getUserFriends();">Get friends</a><br>
+ <a href="#list_likes" onclick="getLikes();">Get likes</a><br>
+ <div id="user-friends"></div>
+ <div id="user-likes"></div>
+ <script>
+ function getUserFriends() {
+   FB.api('/me/friends?fields=name,picture', function(response) {
+     console.log('Got friends: ', response);
+
+     if (!response.error) {
+       var markup = '';
+
+       var friends = response.data;
+
+       for (var i=0; i < friends.length && i < 25; i++) {
+         var friend = friends[i];
+
+         markup += '<img src="' + friend.picture.data.url + '"> ' + friend.name + '<br>';
+       }
+
+       document.getElementById('user-friends').innerHTML = markup;
+     }
+   });
+ }
+  
+  function getLikes() { 
+   FB.api('/me/likes?fields=name', function(response) {
+     console.log('Got likes: ', response);
+
+     if (!response.error) {
+       var markup = '';
+
+
+       var likes = response.data;
+        console.log("Likes:", likes);
+
+       for (var i=0; i < likes.length && i < 25; i++) {
+         var like = likes[i];
+
+         markup += '<img src="' + like.category.url + '"> ' + like.name + '<br>';
+       }
+
+       document.getElementById('user-likes').innerHTML = markup;
+     }
+   });
+  }
+ 
+ </script>
+</body>
+</html>
