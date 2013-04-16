@@ -9,8 +9,13 @@ app.get("/",function(request,response) {
 });
 
 app.get("/feed_api_demo",function(request,response) {
-  response.sendfile("static/feed_demo/feed.html");
+  response.sendfile("static/feed.html");
 });
+
+app.get("/static/:filename", function(request, response) {
+  response.sendfile("static/" + request.params.filename);
+});
+
 //initServer();
-app.listen("3000");
+app.listen("8889");
 //console.log("Listening at 80");
