@@ -93,6 +93,7 @@ body{
 #login_container{
     position: fixed;
     position-top:0;
+    height: 100%;
     width:100%;
     color:white;
     text-align:center;
@@ -185,12 +186,9 @@ body{
 .icon_container{
     display:inline-block;
     width: 24%;
-    height:100%;
+    height:40px;
     padding-top:7px;
-}
-
-.icon_container:hover{
-    background: red;
+    border:1px solid black;
 }
 
 .icon {
@@ -211,6 +209,11 @@ body{
     
 }
 
+
+.header_container:hover{
+    background: red;
+}
+
 #footer_container{
     position:fixed;
     bottom:0;
@@ -222,9 +225,10 @@ body{
     font-size: 20px;
     color: white;
     display:inline-block;
-    padding-top:10px;
-    padding-bottom: 20px;
+    padding-top:9px;
+    padding-bottom: 19px;
     text-align:center;
+    border:1px solid black;
 }
 
 .one_option{
