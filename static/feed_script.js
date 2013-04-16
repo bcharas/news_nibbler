@@ -16,11 +16,11 @@ function onLoad(){
 	feed.load(feedLoaded);
 }
 
-
+/*
 function make_feeds(feed_url_list){
 	for (var i = 0; i < feed_url_list.length; i++){
 		var new_feed = new google.feeds.Feed(window.feed_src);
-		
+*/		
 
 	
 
@@ -30,8 +30,11 @@ function feedLoaded(result){
 		var container = $("#feed");
 		container.innerHTML = "";
 		for (var i = 0; i < result.feed.entries.length; i++) {
+			
 			var entry = result.feed.entries[i];
 			var id = i;
+			post_feed_entry(entry, id);
+			/*
 			var div_class = "listing";
 			var new_div_html = "<div id=" + i + " class='listing'> </div>";
 			container.append(new_div_html);
@@ -52,16 +55,34 @@ function feedLoaded(result){
 						console.log(entry.link);
 						window.open(entry.link);
 					});
-			
-		}
-		
-        
+			*/
+		}        
     }
 	else{
-		$("#current_src").text("ERROR CONSTRUCTING FEED");
+		$("#current_src").text("ERROR WHILE CONSTRUCTING FEED");
 	}
 }
 
+function post_feed_entry(entry, id){
+	var div_class = "listing";
+	var new_div_html = "<div id=" + i + " class='listing'> </div>";
+	container.append(new_div_html);
+	var div = $("#" + id);
+	div.html("<div class='headline'>" + entry.title + "</div>");
+	if ((entry.date !== undefined) && (entry.date !== "")){
+		div.append("<br/>" + "<div class='date'>" + entry.publishedDate + "</div>");
+	}
+	if ((entry.contentSnippet !== undefined) && (entry.contentSnippet !== "")){
+		div.append("<br/>" + "<div class='snippet'>" + entry.contentSnippet + "</div>");
+	}
+	var foo = 	function(){
+					window.open(entry.link);
+				};		
+	div.click(function(){
+				console.log(entry.link);
+				window.open(entry.link);
+			});
+}
 
 function build_controller(){
 	var controller = $("#controller");

@@ -9,15 +9,22 @@ app.get("/",function(request,response) {
 });
 
 app.get("/feed_api_demo",function(request,response) {
-  console.log("trace1\n");
-  response.sendfile("static/feed_demo/feed.html");
+  response.sendfile("static/feed.html");
 });
+
+var static_dir = express.static(__dirname + "/static");
+
+app.use(static_dir, function(request, response, next){
+	next();
+});
+
+/*
+app.get("/static/:filename", function(request, response) {
+  response.sendfile("static/" + request.params.filename);
+});
+*/
 //initServer();
 
-app.get("/static/:staticFilename", function (request, response) {
-    console.log("trace2");
-	response.sendfile("static/" + "feed_demo/" + request.params.staticFilename);
-});
+app.listen("8889");
+console.log("Listening at 8889");
 
-app.listen("3000");
-console.log("Listening at 3000");

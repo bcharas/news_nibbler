@@ -1,0 +1,238 @@
+/*General Practices*/
+/*-----Taken off evan shapiro gituhub, generic mobile settings------*/
+
+/* turn off the annoying highlight on a tap (we provide our own visual feedback) */
+* {
+    -webkit-tap-highlight-color: transparent;
+    -moz-tap-highlight-color: transparent;
+    tap-highlight-color: transparent;
+}
+
+/* prevent the user from highlighting any text */
+* {
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
+/* allow highlighting text in inputs */
+input {
+    -webkit-user-select: text;
+    -moz-user-select: text;
+    -ms-user-select: text;
+    user-select: text;
+    display:block;
+    margin-left:auto;
+    margin-right:auto;
+}
+
+
+body{
+    font-size: 10px;
+    color: #8D41D6;
+    font-family: Impact, Charcoal, sans-serif;
+}
+
+
+/* Profile */
+
+#demographics{
+    height:50px;
+}
+
+#user_subs{
+    font-size: 20px;
+    color: white;
+    display:inline-block;
+    padding-top:10px;
+    padding-bottom:10px;
+    text-align:center;
+    width: 49%;
+}
+
+#user_friends{
+    font-size: 20px;
+    color: white;
+    display:inline-block;
+    padding-top:10px;
+    padding-bottom:10px;
+    text-align:center;
+    width: 49%;
+    
+}
+
+#user_menu{
+    color:white;
+    font-size:20px;
+    height: 40px;
+    width: 100%;
+    background:#8D41D6;
+}
+
+/*Login*/
+
+.login{
+    margin-top:20px;
+    margin-bottom:20px;
+}
+
+#login_container{
+    position: fixed;
+    position-top:0;
+    width:100%;
+    color:white;
+    text-align:center;
+    background:#8D41D6;
+    font-size: 20px;
+}
+
+#app_title{
+    margin-top:30px;
+    margin-bottom: 20px;
+    text-align:inherit;
+    font-size:50px;
+}
+
+#login{
+    padding:5px;
+    margin-left:auto;
+    margin-right:auto;
+    background:orange;
+    text-align:inherit;
+    width:50px;
+    border:2px solid black;
+    border-radius: 5px;
+}
+
+#non_user{
+    margin-top:30px;
+    margin-bottom:50px;
+    width:100%;
+    text-align:inherit;
+}
+
+#to_create{ 
+    padding:5px;
+    margin-top:10px;
+    margin-left:auto;
+    margin-right:auto; 
+    background:red;
+    width:80px;
+    border:2px solid black;
+    border-radius: 5px;    
+}
+
+/* Create Profile */
+
+#likes{
+    display:inline;
+}
+
+#friends{
+    display:inline;
+}
+
+#create_title{
+    margin-top:30px;
+    margin-bottom:20px;
+    font-size:40px;
+}
+
+#create_container{
+    position: fixed;
+    position-top:0;
+    width:100%;
+    color:white;
+    text-align:center;
+    background:#8D41D6;
+    font-size: 20px;
+}
+
+#facebook_imports{
+    margin-top:10px;
+    margin-bottom: 20px;
+}
+
+#create{
+    padding:5px;
+    margin-top:10px;
+    margin-left:auto;
+    margin-right:auto;
+    margin-bottom: 30px;
+    background:red;
+    width:80px;
+    border:2px solid black;
+    border-radius: 5px;    
+}
+
+/* Footer/Menus */ 
+
+.icon_container{
+    display:inline-block;
+    width: 24%;
+    height:100%;
+    padding-top:7px;
+}
+
+.icon_container:hover{
+    background: red;
+}
+
+.icon {
+    width:35px;
+    height:35px;
+}
+
+.hidden{
+    display:none;
+}
+
+#footer_container{
+    position:fixed;
+    bottom:0;
+    right:0;
+    left:0;
+}
+
+.menu_tab{
+    font-size: 20px;
+    color: white;
+    display:inline-block;
+    padding-top:10px;
+    padding-bottom: 20px;
+    text-align:center;
+
+}
+
+.one_option{
+    width:100%;
+}
+
+.two_options{
+    width:49%;
+}
+.menu_tab:hover{
+    background:black;
+}
+
+#menus{
+    background:blue;
+    height:0;
+    position: absolute;
+    bottom:50px;
+    left:0;
+    right:0;
+    text-align:center;
+}
+
+
+#footer{
+    text-align:center;
+    background:#8D41D6;
+    height: 50px;
+    position: absolute;
+    bottom:0;
+    right:0;
+    left:0;
+}
