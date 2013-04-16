@@ -33,11 +33,9 @@ function load_feed(){
 */
 		
 function load_all_feeds(){
-	console.log("loading feeds");
+	//console.log("loading feeds");
 	default_feeds();
-	//window.num_feeds = window.feedList.length;
-	console.log("num of feeds: " + num_feeds);
-	//window.total_num_entries = 4 * num_feeds;
+	//console.log("num of feeds: " + num_feeds);
 	window.feeds = [];
 		
 	for (var i = 0; i < num_feeds; i++){
@@ -45,13 +43,9 @@ function load_all_feeds(){
 		console.log("loading feed from src: " + new_feed_src);
 		var new_feed = new google.feeds.Feed(new_feed_src);
 		new_feed.setNumEntries(4);
-		
-		//race condition
-		//new_feed.load();
-		
+
 		new_feed.load(load_feed_contents);
 	}
-	//post_merged_feed();
 }	
 
 function load_next_feed(){
@@ -59,12 +53,12 @@ function load_next_feed(){
 	if (window.this_feed_num >= window.numFeeds){
 		//post_merged_feed();
 		window.all_feeds_loaded = true;
-		console.log("window.all_feeds_loaded == true");
-		console.log("terminal feed");
+		//console.log("window.all_feeds_loaded == true");
+		//console.log("terminal feed");
 		return;
 	}
 	else{
-		console.log("feed num: " + window.this_feed_num);
+		//console.log("feed num: " + window.this_feed_num);
 		var feed_to_load = window.feedList[window.this_feed_num];
 		var new_feed = new google.feeds.Feed(feed_to_load);
 		new_feed.setNumEntries(4);
@@ -74,25 +68,27 @@ function load_next_feed(){
 }
 
 function load_feed_contents(result){
-	console.log("loading feed contents");
-	console.log("this feed's num before publish: " + window.this_feed_num);
+	//console.log("loading feed contents");
+	//console.log("this feed's num before publish: " + window.this_feed_num);
+	
 	if (!result.error){
 		var feed_contents = [];
+		var feed_id = window.feedList[window.this_feed_num];
 		for (var i = 0; i < result.feed.entries.length; i++) {	
-			//console.log("loading feed entry: " + i);
 			var entry = result.feed.entries[i];
+			entry.feed_src = feed_id;
 			feed_contents.push(entry);
 		}
 		window.feeds.push(feed_contents);
-		//window.num_
-		console.log("feed loaded");
-		//if (window.this_feed_num >= window.numFeeds){
+		//console.log("feed loaded");
 		if ((window.all_feeds_loaded) && (!(window.has_published))){
 			window.has_published = true;
+			/*
 			console.log("window.has_published == true");
 			console.log("ALL FEEDS SHOULD BE LOADED");
 			console.log("\n publishing from end of load feed contents! \n");
 			console.log("this feed's num after publish: " + window.this_feed_num);
+			*/
 			post_merged_feed();
 		}
 		else{
@@ -104,17 +100,10 @@ function load_feed_contents(result){
 	}
 }
 
-/*
-function load_ith_feed(){
-	window.
-*/
-
-
 function post_merged_feed(){
-	//for (var i = 0; i < window.total_num_entries){
-	console.log("Merging feeds...");
+	//console.log("Merging feeds...");
 	var entries_per_feed = 4;
-	console.log("num of feeds published: " + (entries_per_feed * window.num_feeds));
+	//console.log("num of feeds published: " + (entries_per_feed * window.num_feeds));
 	var entry_num = 0;
 	for (var i = 0; i < entries_per_feed; i++){	
 		for (var j = 0; j < window.num_feeds; j++){
@@ -175,6 +164,7 @@ function post_feed_entry(entry, id){
 	if ((entry.link !== undefined) && (entry.link !== "")){
 		div.append("<br/>" + "<div class='date'>" + entry.link + "</div>");
 	}
+	div.append("<br/>" + "<div class='date'>" + "Because you subscribe to: " + entry.feed_src + "</div>");
 	div.click(function(){
 				console.log("opening...");
 				console.log(entry.link);
