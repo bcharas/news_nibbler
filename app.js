@@ -1,6 +1,6 @@
 var express = require('express');
 var app = express();
-n(request,response) {
+app.get("/", function(request,response) {
   response.sendfile("static/index.html");
 });
 
