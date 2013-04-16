@@ -1,7 +1,7 @@
 var express = require('express');
 var app = express();
 app.get("/", function(request,response) {
-  response.sendfile("static/index.html");
+  response.sendfile("static/startScreens.html");
 });
 
 app.get("/feed_api_demo",function(request,response) {
