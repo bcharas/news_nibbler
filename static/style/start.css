@@ -103,6 +103,7 @@ body{
     width:50px;
     border:2px solid black;
     border-radius: 5px;
+	-moz-border-radius: 5px;
 }
 
 #non_user{
@@ -235,4 +236,5 @@ body{
     bottom:0;
     right:0;
     left:0;
+	border: 2px solid black;
 }

@@ -1,18 +1,22 @@
+/*
 body {
   background-color: #DDDDDD;
   font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
 }
+*/
 
 .listing {
   position: relative;
   margin: 50px 50px;
-  background-color: #E40045;
+  background-color: #8D41D6;
   border-radius: 5px;
   -moz-border-radius: 5px;
-  padding: 20px;
+  padding: 10px;
   color: #FFFFFF;
   font-size: 17px;
+  border: 2px solid black;
 }
+
 
 .listing:hover {
 	background-color: #000;
