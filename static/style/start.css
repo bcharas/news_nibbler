@@ -27,6 +27,19 @@ input {
     margin-right:auto;
 }
 
+/*stolen off evan shapiro github */
+.transition {
+    -webkit-transition: all .5s ease-in-out;
+    -moz-transition: all .5s ease-in-out;
+    -o-transition: all .5s ease-in-out;
+    transition: all .5s ease-in-out;
+
+    /* prevents flickering and other weirdness */
+    -webkit-backface-visibility: hidden;
+    -moz-backface-visibility: hidden;
+    -ms-backface-visibility: hidden;
+    backface-visibility: hidden;
+}
 
 body{
     font-size: 10px;
@@ -189,6 +202,15 @@ body{
     display:none;
 }
 
+.header_container{
+    width:30%;
+    height:auto;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    border: 1px solid black;
+    
+}
+
 #footer_container{
     position:fixed;
     bottom:0;
@@ -203,7 +225,6 @@ body{
     padding-top:10px;
     padding-bottom: 20px;
     text-align:center;
-
 }
 
 .one_option{
@@ -217,6 +238,7 @@ body{
     background:black;
 }
 
+
 #menus{
     background:blue;
     height:0;
@@ -227,14 +249,28 @@ body{
     text-align:center;
 }
 
+#article_header{
+    text-align:center;
+    background:#8D41D6;
+    height: 50px;
+    position: fixed;
+    top:0;
+    right:0;
+    left:0;    
+}
+
+#article{
+    height:500px;
+    width:100%;
+    scrolling: no;
+}
 
 #footer{
     text-align:center;
     background:#8D41D6;
     height: 50px;
-    position: absolute;
+    position: fixed;
     bottom:0;
     right:0;
     left:0;
-	border: 2px solid black;
 }

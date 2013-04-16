@@ -3,38 +3,46 @@
 $(document).ready(function(){
     function clearMenu(){
         if(!($("#search_menu").hasClass("hidden"))){
+            $("#search_cont").css("background", "#8D41D6");
             $("#search_menu").addClass("hidden");
         }
         if(!($("#profile_menu").hasClass("hidden"))){
+            $("#prof_cont").css("background", "#8D41D6");
             $("#profile_menu").addClass("hidden");
         }
         if(!($("#rss_menu").hasClass("hidden"))){
+            $("#rss_cont").css("background", "#8D41D6");
             $("#rss_menu").addClass("hidden");
         }
+        $("#sett_cont").css("background", "#8D41D6");
     }
     
     //======================
     //  Footer Interactions
     //======================
     $("#prof_cont").click(function(){
-        clearMenu()
+        $("#prof_cont").css("background", "blue");
+        clearMenu();
         $("#profile_menu").removeClass("hidden");
         $("#menus").css("height", "50px");
     })
     
     $("#search_cont").click(function(){
-        clearMenu()
+        $("#search_cont").css("background", "blue");
+        clearMenu();
         $("#search_menu").removeClass("hidden");
         $("#menus").css("height", "50px");
     })
     
     $("#rss_cont").click(function(){
+        $("#rss_cont").css("background", "blue");
         clearMenu()
         $("#rss_menu").removeClass("hidden");
         $("#menus").css("height", "50px");
     })
     $("#sett_cont").click(function(){
         clearMenu()
+        $("#sett_cont").css("background", "blue");
         $("#menus").css("height", "0");
     })
     
@@ -44,14 +52,12 @@ $(document).ready(function(){
     
     $("#to_user_profile").click(function(){
         $("#menus").css("height", "0");
-        $("#profile_menu").addClass("hidden");
         closeContainers();
         $("#user_container").removeClass("hidden");
         //profile page
     })
     $(".logout").click(function(){
         $("#menus").css("height", "0");
-        $("#profile_menu").addClass("hidden");
         closeContainers();
         $("#footer_container").addClass("hidden");
         $("#login_container").removeClass("hidden");
@@ -61,7 +67,6 @@ $(document).ready(function(){
     
     $("#to_search").click(function(){
         $("#menus").css("height", "0");
-        $("#search_menu").addClass("hidden");
         closeContainers();
         $("#browser_container").removeClass("hidden");
         // go to search screen
@@ -69,7 +74,6 @@ $(document).ready(function(){
     
     $("#to_topics").click(function(){
         $("#menus").css("height", "0");
-        $("#rss_menu").addClass("hidden");
         closeContainers();
         $("#browser_container").removeClass("hidden");
         //to topics page
@@ -77,7 +81,6 @@ $(document).ready(function(){
     
     $("#to_rss_feed").click(function(){
         $("#menus").css("height", "0");
-        $("#rss_menu").addClass("hidden");
         closeContainers();
         $("#feed_container").removeClass("hidden");
         
