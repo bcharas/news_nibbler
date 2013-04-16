@@ -27,6 +27,9 @@ input {
     margin-right:auto;
 }
 
+/* stolen off of evan  shapiro Mobile UI github code */
+
+
 
 body{
     font-size: 10px;
@@ -175,9 +178,6 @@ body{
     padding-top:7px;
 }
 
-.icon_container:hover{
-    background: red;
-}
 
 .icon {
     width:35px;
@@ -202,6 +202,7 @@ body{
     padding-top:10px;
     padding-bottom: 20px;
     text-align:center;
+    /* border:1px solid black; */
 
 }
 
@@ -224,6 +225,8 @@ body{
     left:0;
     right:0;
     text-align:center;
+    transition-property: all;
+    transition-duration: .5s;
 }
 
 
