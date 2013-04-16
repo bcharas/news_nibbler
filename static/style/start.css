@@ -44,7 +44,7 @@ input {
 body{
     font-size: 10px;
     color: #8D41D6;
-    font-family: Impact, Charcoal, sans-serif;
+    font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
 }
 
 
@@ -61,7 +61,7 @@ body{
     padding-top:10px;
     padding-bottom:10px;
     text-align:center;
-    width: 49%;
+    width: 50%;
 }
 
 #user_friends{
@@ -71,7 +71,7 @@ body{
     padding-top:10px;
     padding-bottom:10px;
     text-align:center;
-    width: 49%;
+    width: 50%;
     
 }
 
@@ -183,12 +183,20 @@ body{
 
 /* Footer/Menus */ 
 
+.borbox{
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    float:left;
+    box-shadow:2px 0 1px #888888;
+}
+
 .icon_container{
     display:inline-block;
-    width: 24%;
-    height:40px;
+    width: 25%;
+    height:50px;
     padding-top:7px;
-    border:1px solid black;
+    border:1px solid #1A1A1A;
 }
 
 .icon {
@@ -202,10 +210,10 @@ body{
 
 .header_container{
     width:30%;
-    height:auto;
+    height:50px;
     padding-top: 5px;
     padding-bottom: 5px;
-    border: 1px solid black;
+    border: 1px solid #1A1A1A;
     
 }
 
@@ -228,7 +236,7 @@ body{
     padding-top:9px;
     padding-bottom: 19px;
     text-align:center;
-    border:1px solid black;
+    border:1px solid #1A1A1A;
 }
 
 .one_option{
@@ -236,7 +244,7 @@ body{
 }
 
 .two_options{
-    width:49%;
+    width:50%;
 }
 .menu_tab:hover{
     background:black;
@@ -246,7 +254,7 @@ body{
 #menus{
     background:blue;
     height:0;
-    position: absolute;
+    position: fixed;
     bottom:50px;
     left:0;
     right:0;
@@ -277,4 +285,69 @@ body{
     bottom:0;
     right:0;
     left:0;
+}
+
+
+/* Ben's code */
+
+
+.listing {
+  position: relative;
+  margin-left: 20px;
+  margin-top: 5px;
+  margin-bottom:5px;
+  margin-right: 20px;
+  background-color: #8D41D6;
+  border-radius: 5px;
+  -moz-border-radius: 5px;
+  padding: 10px;
+  color: #FFFFFF;
+  font-size: 17px;
+  border: 1px solid #1A1A1A;
+}
+
+
+.listing:hover {
+    background-color: #000;
+}
+
+#controller:hover{
+	background-color: #E40045;
+}
+
+.headline {
+  font-size: 25px;
+  font-weight: bold;
+  text-align: center;
+}
+
+
+.snippet{
+  display: inline-block;
+  font-style: bold;
+  /*text-align: right;*/
+  /*font-size: 17px;*/
+  /*margin-right: 20px;*/
+  /*width: 100px;*/
+}
+
+.date{
+  display: inline-block;
+  font-size: 10px;
+}
+
+.pushbutton {
+  display: inline-block;
+  text-decoration: none;
+  color:#000000;
+  background-color: #FFFFFF;
+  padding: 5px;
+  margin: 5px;
+  border-radius: 5px;
+  -moz-border-radius: 5px;
+}
+
+.headers{
+	font-size: 25px;
+	font-weight: bold;
 }
