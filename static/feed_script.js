@@ -168,7 +168,9 @@ function post_feed_entry(entry, id){
 	div.click(function(){
 				console.log("opening...");
 				console.log(entry.link);
-				window.open(entry.link);
+                closeContainers();
+                $("#article_container").removeClass("hidden");
+				$("#article").attr("src", entry.link);
 			});
 }
 /*

@@ -13,6 +13,7 @@
     
     <!--add scripts when finished-->
     <script src="./jquery-1.9.1.js"></script>
+    <script src="../local/lib/addTappableJQPlugin.js"></script>
 	<script type="text/javascript" src="https://www.google.com/jsapi"></script>
 	<script src="feed_script.js" type="text/javascript"></script>
     <script src="./start.js"></script>
@@ -42,7 +43,15 @@
     ===========-->
 
     <div id='feed_container' class= 'hidden'>
-        
+    </div>
+    
+    <div id='article_container' class='hidden transition'>
+        <div id="article_header">
+            <div id='back' class= 'header_container'>
+                <img id="back_img" class= 'icon' src="style/icons/back.png" />
+            </div>
+        </div>
+        <iframe id="article"></iframe>
     </div>
 
     <!--=============
@@ -157,7 +166,7 @@
         Footer
     ==============-->
     <div id='footer_container' class='hidden'>
-        <div id= 'menus'>
+        <div id= 'menus' class="transition">
             <!--============
                 Menus
             ===============-->
@@ -197,16 +206,16 @@
         </div>
         
         <div id= "footer">
-            <div id='prof_cont' class= 'icon_container'>
+            <div id='prof_cont' class= 'icon_container transition'>
                 <img id="prof_img" class= 'icon' src="style/icons/user.png" />
             </div>
             <div id='search_cont' class= 'icon_container'>
                 <img id="search_img" class= 'icon' src="style/icons/search.png" />
             </div>
-            <div id='rss_cont' class= 'icon_container'>
+            <div id='rss_cont' class= 'icon_container transition'>
                 <img id="rss_img"class= 'icon' src="style/icons/rss.png" />
             </div>
-            <div id='sett_cont' class= 'icon_container'>
+            <div id='sett_cont' class= 'icon_container transition'>
                 <img id="sett_img" class= 'icon' src="style/icons/settings.png" />
             </div>
         </div>
