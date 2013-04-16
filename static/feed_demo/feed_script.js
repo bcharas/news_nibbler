@@ -16,6 +16,15 @@ function onLoad(){
 	feed.load(feedLoaded);
 }
 
+
+function make_feeds(feed_url_list){
+	for (var i = 0; i < feed_url_list.length; i++){
+		var new_feed = new google.feeds.Feed(window.feed_src);
+		
+
+	
+
+
 function feedLoaded(result){
 	if (!result.error){
 		var container = $("#feed");
@@ -34,9 +43,16 @@ function feedLoaded(result){
 			if ((entry.contentSnippet !== undefined) && (entry.contentSnippet !== "")){
 				div.append("<br/>" + "<div class='snippet'>" + entry.contentSnippet + "</div>");
 			}
+			var foo = 	function(){
+							window.open(entry.link);
+						};
+			//div.click(foo());
+			//div.append("<br/>" + "<div class='snippet'>" + entry.link + "</div>");			
 			div.click(function(){
+						console.log(entry.link);
 						window.open(entry.link);
 					});
+			
 		}
 		
         
