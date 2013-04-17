@@ -340,7 +340,7 @@ body{
 
 
 #feed_container{
-    overflow:auto;
+    overflow-x:hidden;
 }
 
 /* Ben's code */
@@ -360,14 +360,6 @@ body{
   border: 1px solid #1A1A1A;
 }
 
-
-.listing:hover {
-    background-color: #000;
-}
-
-#controller:hover{
-	background-color: #E40045;
-}
 
 .headline {
   font-size: 25px;
