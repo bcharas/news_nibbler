@@ -14,6 +14,7 @@ app.get("/feed_api_demo",function(request,response) {
 
 var static_dir = express.static(__dirname + "/static");
 
+
 app.use(static_dir, function(request, response, next){
 	next();
 });

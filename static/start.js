@@ -103,7 +103,7 @@ function footer_sub_menu_interactions(){
         $("#menus").css("height", "0");
         closeContainers();
 		//load_feed();
-        $("#feed_container").removeClass("hidden");
+        //$("#feed_container").removeClass("hidden");
         
     });
     
@@ -133,6 +133,7 @@ function login_handler(){
     $("#create").onButtonTap(function(){
         $("#create_container").addClass("hidden");
         $("#footer_container").removeClass("hidden");
+		$("#feed_container").removeClass("hidden");
     });
 }
 	
