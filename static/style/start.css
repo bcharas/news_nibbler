@@ -51,6 +51,9 @@ body{
 /* Profile */
 
 #demographics{
+    position: fixed;
+    left: 0px;
+    top: 0px;
     height:50px;
 }
 
