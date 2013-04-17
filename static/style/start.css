@@ -315,11 +315,7 @@ body{
 #article_header{
     text-align:center;
     background:#8D41D6;
-    height: 50px;
-    position: fixed;
-    top:0;
-    right:0;
-    left:0;    
+    height: 50px;  
 }
 
 #article{
@@ -351,13 +347,12 @@ body{
   margin-top: 5px;
   margin-bottom:5px;
   margin-right: 20px;
-  background-color: #8D41D6;
   border-radius: 5px;
   -moz-border-radius: 5px;
   padding: 10px;
-  color: #FFFFFF;
+  color: #000000;
   font-size: 17px;
-  border: 1px solid #1A1A1A;
+  border: 3px solid #8D41D6;
 }
 
 
@@ -378,8 +373,9 @@ body{
 }
 
 .date{
-  display: inline-block;
+  display: block;
   font-size: 10px;
+  word-wrap:break-word;
 }
 
 .pushbutton {
