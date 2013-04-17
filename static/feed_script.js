@@ -176,11 +176,10 @@ function post_feed_entry(entry, id){
 		div.append("<br/>" + "<div class='date'>" + entry.link + "</div>");
 	}
 	div.click(function(){
-				console.log("opening...");
-				console.log(entry.link);
+				console.log("opening...");;
+                localStorage.link = entry.link;
                 closeContainers();
-                $("#article_container").removeClass("hidden");
-				$("#article").attr("src", entry.link);
+                window.top.location= './article.html';
 			});
 }
 /*
