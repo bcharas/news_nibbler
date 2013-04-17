@@ -55,24 +55,23 @@ body{
 }
 
 #user_subs{
-    font-size: 20px;
-    color: white;
-    display:inline-block;
-    padding-top:10px;
-    padding-bottom:10px;
-    text-align:center;
-    width: 50%;
 }
 
-#user_friends{
+
+.user_tab{
     font-size: 20px;
     color: white;
     display:inline-block;
     padding-top:10px;
-    padding-bottom:10px;
+    padding-bottom:8px;
     text-align:center;
     width: 50%;
+    border:1px solid #1A1A1A;
     
+}
+
+.user_tab:hover{
+    background: black;
 }
 
 #user_menu{
@@ -287,6 +286,10 @@ body{
     left:0;
 }
 
+
+#feed_container{
+    overflow:auto;
+}
 
 /* Ben's code */
 
