@@ -9,11 +9,10 @@
     
     <link href="./style/reset.css" rel="stylesheet" type="text/css">
     <link href="./style/start.css" rel="stylesheet" type="text/css">
-	<link href="style.css" rel="stylesheet" type="text/css">
     
     <!--add scripts when finished-->
     <script src="./jquery-1.9.1.js"></script>
-    <script src="../local/lib/addTappableJQPlugin.js"></script>
+    <script src="./addTappableJQPlugin.js"></script>
 	<script type="text/javascript" src="https://www.google.com/jsapi"></script>
 	<script src="feed_script.js" type="text/javascript"></script>
     <script src="./start.js"></script>
@@ -47,7 +46,7 @@
     
     <div id='article_container' class='hidden transition'>
         <div id="article_header">
-            <div id='back' class= 'header_container'>
+            <div id='back' class= 'header_container borbox'>
                 <img id="back_img" class= 'icon' src="style/icons/back.png" />
             </div>
         </div>
@@ -63,13 +62,12 @@
         <div id='demographics'>
             <div id= "profile_pic"></div>
             <div id="username">JOHN FUCKING DOE</div>
-            <div id='fb_link'></div>
-            <div id=class='logout'>logout</div>
+            <div id="prof_log" class='logout'>logout</div>
         </div>
         
         <div id='user_menu' class='menu'>
-            <div id= 'user_subs'>Subscriptions</div>
-            <div id = 'user_friends'>Friends</div>
+            <div id= 'user_subs' class='user_tab borbox'>Subscriptions</div>
+            <div id = 'user_friends' class='user_tab borbox'>Friends</div>
         </div>
     <!--contains the users RSS and friend data to look through, only one list
     will be visible at a time but you can select  which lsit from the menu-->
@@ -102,8 +100,15 @@
     ===============-->
     <div id ='browser_container' class='hidden'>
         <!-- can search through RSS feeds -->
-        <div id='browse'>    
-            <input id="browse_search" type= 'text' class='search'>
+        <div id='browse'> 
+            <div id='search_bar'>
+                <form id="search_form">
+                    <div id='browse_label'>
+                        Browse for RSS feeds:
+                    </div>
+                    <input id="browse_search" type= 'text' class='search'>
+                </form>
+            </div>
             <ul>
                 <!--contains random, or similar rss feeds to try-->
             </ul>
@@ -130,7 +135,7 @@
             <input id="password_login" type="password" name='password'/>
         </form> -->
         <div id="login">Login</div>
-        <div id='non_user'>
+        <div id='non_user' class='hidden'>
             Not a user? Create your profile via facebook:
             <div id='to_create'>Create Account</div>
         </div>
@@ -173,17 +178,17 @@
             
             <!--popup menu that appears when you click on the profile image on the menu bar-->
             <div id='profile_menu' class= 'hidden'>
-                <div id = "to_user_profile" class="two_options menu_tab">
+                <div id = "to_user_profile" class="two_options borbox menu_tab">
                     Profile
                 </div>
-                <div class="logout two_options menu_tab">
+                <div class="logout two_options borbox menu_tab">
                     Logout
                 </div>
             </div>
             
             <!--search popupmenu-->
             <div id='search_menu' class='hidden'>
-                <div id='to_search' class='one_option menu_tab'>
+                <div id='to_search' class='one_option borbox menu_tab'>
                     Search
                 </div>
 <!--                <div id='to_reccs' class='recommendations se menu_tab'>
@@ -193,10 +198,10 @@
             
             <!--rss popup-->
             <div id='rss_menu' class='hidden'>
-                <div id='to_rss_feed' class="menu_tab two_options">
+                <div id='to_rss_feed' class="menu_tab borbox two_options">
                     Feed
                 </div>
-                <div id="to_topics" class="menu_tab two_options">
+                <div id="to_topics" class="menu_tab borbox two_options">
                     Topics
                 </div>
 <!--                <div id='' class='recommendations rs menu_tab'>
@@ -206,16 +211,16 @@
         </div>
         
         <div id= "footer">
-            <div id='prof_cont' class= 'icon_container transition'>
+            <div id='prof_cont' class= 'icon_container transition borbox'>
                 <img id="prof_img" class= 'icon' src="style/icons/user.png" />
             </div>
-            <div id='search_cont' class= 'icon_container'>
+            <div id='search_cont' class= 'icon_container transition borbox'>
                 <img id="search_img" class= 'icon' src="style/icons/search.png" />
             </div>
-            <div id='rss_cont' class= 'icon_container transition'>
+            <div id='rss_cont' class= 'icon_container borbox transition'>
                 <img id="rss_img"class= 'icon' src="style/icons/rss.png" />
             </div>
-            <div id='sett_cont' class= 'icon_container transition'>
+            <div id='sett_cont' class= 'icon_container transition borbox'>
                 <img id="sett_img" class= 'icon' src="style/icons/settings.png" />
             </div>
         </div>

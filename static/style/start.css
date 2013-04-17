@@ -44,43 +44,94 @@ input {
 body{
     font-size: 10px;
     color: #8D41D6;
-    font-family: Impact, Charcoal, sans-serif;
+    font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+
 }
+
 
 
 /* Profile */
 
 #demographics{
-    height:50px;
+    position:relative;
+    top:0;
+    left:0;
+    right:0;
+    height:70px;
+}
+
+#profile_pic{
+    display: inline-block;
+    background: red;
+    margin-top:10px;
+    margin-left:10px;
+    width: 50px;
+    height: 50px;
+}
+
+#username{
+    position: relative;
+    bottom: 35px;
+    color: black;
+    font-size:20px;
+    padding: 10px;
+    vertical-align:text-top;
+    display:inline-block;
+}
+
+#prof_log{
+    font-size:15px;
+    padding: 3px;
+    margin-left:auto;
+    border:1px solid #1A1A1A;
+    color: black;
+    background: blue;
+    display:inline-block;
+    position:absolute;
+    right:1%;
+    bottom: 5px;
 }
 
 #user_subs{
-    font-size: 20px;
-    color: white;
-    display:inline-block;
-    padding-top:10px;
-    padding-bottom:10px;
-    text-align:center;
-    width: 49%;
 }
 
-#user_friends{
+
+.user_tab{
     font-size: 20px;
     color: white;
     display:inline-block;
     padding-top:10px;
-    padding-bottom:10px;
+    padding-bottom:8px;
     text-align:center;
-    width: 49%;
+    width: 50%;
+    border:1px solid #1A1A1A;
     
 }
 
+.user_tab:hover{
+    background: black;
+}
+
 #user_menu{
+    position: relative;
     color:white;
     font-size:20px;
     height: 40px;
     width: 100%;
     background:#8D41D6;
+}
+
+
+#browse_label{
+    color: black;
+    text-align:center;
+    font-size: 15px;
+}
+
+#search_bar{
+    background: #8D41D6;
+    border:1px solid #1A1A1A;
+    padding-bottom: 5px;
 }
 
 /*Login*/
@@ -93,6 +144,7 @@ body{
 #login_container{
     position: fixed;
     position-top:0;
+    height: 100%;
     width:100%;
     color:white;
     text-align:center;
@@ -182,15 +234,20 @@ body{
 
 /* Footer/Menus */ 
 
-.icon_container{
-    display:inline-block;
-    width: 24%;
-    height:100%;
-    padding-top:7px;
+.borbox{
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    float:left;
+    box-shadow:2px 0 1px #888888;
 }
 
-.icon_container:hover{
-    background: red;
+.icon_container{
+    display:inline-block;
+    width: 25%;
+    height:50px;
+    padding-top:7px;
+    border:1px solid #1A1A1A;
 }
 
 .icon {
@@ -204,11 +261,16 @@ body{
 
 .header_container{
     width:30%;
-    height:auto;
+    height:50px;
     padding-top: 5px;
     padding-bottom: 5px;
-    border: 1px solid black;
+    border: 1px solid #1A1A1A;
     
+}
+
+
+.header_container:hover{
+    background: red;
 }
 
 #footer_container{
@@ -222,9 +284,10 @@ body{
     font-size: 20px;
     color: white;
     display:inline-block;
-    padding-top:10px;
-    padding-bottom: 20px;
+    padding-top:9px;
+    padding-bottom: 19px;
     text-align:center;
+    border:1px solid #1A1A1A;
 }
 
 .one_option{
@@ -232,7 +295,7 @@ body{
 }
 
 .two_options{
-    width:49%;
+    width:50%;
 }
 .menu_tab:hover{
     background:black;
@@ -242,7 +305,7 @@ body{
 #menus{
     background:blue;
     height:0;
-    position: absolute;
+    position: fixed;
     bottom:50px;
     left:0;
     right:0;
@@ -273,4 +336,64 @@ body{
     bottom:0;
     right:0;
     left:0;
+}
+
+
+#feed_container{
+    overflow-x:hidden;
+}
+
+/* Ben's code */
+
+
+.listing {
+  margin-left: 20px;
+  margin-top: 5px;
+  margin-bottom:5px;
+  margin-right: 20px;
+  background-color: #8D41D6;
+  border-radius: 5px;
+  -moz-border-radius: 5px;
+  padding: 10px;
+  color: #FFFFFF;
+  font-size: 17px;
+  border: 1px solid #1A1A1A;
+}
+
+
+.headline {
+  font-size: 25px;
+  font-weight: bold;
+  text-align: center;
+}
+
+
+.snippet{
+  display: inline-block;
+  font-style: bold;
+  /*text-align: right;*/
+  /*font-size: 17px;*/
+  /*margin-right: 20px;*/
+  /*width: 100px;*/
+}
+
+.date{
+  display: inline-block;
+  font-size: 10px;
+}
+
+.pushbutton {
+  display: inline-block;
+  text-decoration: none;
+  color:#000000;
+  background-color: #FFFFFF;
+  padding: 5px;
+  margin: 5px;
+  border-radius: 5px;
+  -moz-border-radius: 5px;
+}
+
+.headers{
+	font-size: 25px;
+	font-weight: bold;
 }

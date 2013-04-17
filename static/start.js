@@ -41,29 +41,28 @@ function closeContainers(){
 
 function footer_interactions(){
 	$("#prof_cont").onButtonTap(function(){
-        alert("fuck");
-		clearMenu()
+		clearMenu();
 		$("#profile_menu").removeClass("hidden");
         $("#prof_cont").css("background", "blue");
 		$("#menus").css("height", "50px");
 	});
 
     $("#search_cont").onButtonTap(function(){
-        clearMenu()
+        clearMenu();
         $("#search_menu").removeClass("hidden");
         $("#search_cont").css("background", "blue");
         $("#menus").css("height", "50px");
     });
     
     $("#rss_cont").onButtonTap(function(){
-        clearMenu()
+        clearMenu();
         $("#rss_menu").removeClass("hidden");
         $("#rss_cont").css("background", "blue");
         $("#menus").css("height", "50px");
     });
    
    $("#sett_cont").onButtonTap(function(){
-        clearMenu()
+        clearMenu();
         $("#sett_cont").css("background", "blue");
         $("#menus").css("height", "0");
     });
@@ -120,9 +119,11 @@ function footer_sub_menu_interactions(){
 	
 function login_handler(){
 	$("#login").onButtonTap(function(){
+    //loginUser();
 		$("#login_container").addClass("hidden");
 		$("#footer_container").removeClass("hidden");            
 		$("#feed_container").removeClass("hidden");
+        $("#user_container").removeClass("hidden");
         //call login check function, go to homepage
     });
     
@@ -132,6 +133,7 @@ function login_handler(){
     })
     $("#create").onButtonTap(function(){
         $("#create_container").addClass("hidden");
+        $("#feed_container").removeClass("hidden");
         $("#footer_container").removeClass("hidden");
 		$("#feed_container").removeClass("hidden");
     });
