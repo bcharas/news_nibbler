@@ -62,3 +62,15 @@ body {
 	font-size: 25px;
 	font-weight: bold;
 }
+
+.ignored_feed{
+	position: relative;
+	margin: 50px 50px;
+	background-color: #b0b0b0;
+	border-radius: 5px;
+	-moz-border-radius: 5px;
+	padding: 10px;
+	color: #FFFFFF;
+	font-size: 17px;
+	border: 2px solid black;
+}

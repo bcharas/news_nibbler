@@ -15,7 +15,7 @@ function clearMenu(){
 }
 
 function closeContainers(){
-	//console.log("trace2");
+	////console.log("trace2");
 	if(!($("#login_container").hasClass("hidden"))){
 		$("#login_container").addClass("hidden");
 	}
@@ -102,7 +102,7 @@ function footer_sub_menu_interactions(){
         $("#menus").css("height", "0");
         closeContainers();
 		//load_feed();
-        //$("#feed_container").removeClass("hidden");
+        $("#feed_container").removeClass("hidden");
         
     });
     
