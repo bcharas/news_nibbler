@@ -48,6 +48,7 @@ body{
 }
 
 
+
 /* Profile */
 
 #demographics{
@@ -117,6 +118,19 @@ body{
     height: 40px;
     width: 100%;
     background:#8D41D6;
+}
+
+
+#browse_label{
+    color: black;
+    text-align:center;
+    font-size: 15px;
+}
+
+#search_bar{
+    background: #8D41D6;
+    border:1px solid #1A1A1A;
+    padding-bottom: 5px;
 }
 
 /*Login*/
