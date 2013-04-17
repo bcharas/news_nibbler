@@ -1,12 +1,13 @@
 var accessToken;
 var signedRequest;
+var response;
   
 function handleStatusChange(response) {
   document.body.className = response.authResponse ? 'connected' : 'not_connected';
   if (response.authResponse) {
     //console.log(response);
     console.log("Got to handleStatusChange");
-    updateUserInfo(response);
+    //updateUserInfo(response);
   }
 }
 
@@ -39,22 +40,31 @@ window.fbAsyncInit = function() {
    ref.parentNode.insertBefore(js, ref);
 }(document));
  
-function loginUser() {    
- FB.login(function(response) { 
-    //accessToken = response.authResponse.accessToken;
-    //console.log(response.authResponse);
-   FB.getLoginStatus(function (resp) {
-     console.log(resp);
-   }, true);
-  }, 
-  {
-    scope:'email,user_likes,user_interests'
-  });     
+function loginUser() {
+  FB.getLoginStatus(function(response) {
+    if (response.status === 'connected') {
+      accessToken = response.authResponse.accessToken;
+      signedRequest = response.authResponse.signedRequest;
+      updateUserInfo(response);
+    }
+    else {
+      FB.login(function(response) { 
+        if (response.authResponse !== null) {
+          accessToken = response.authResponse.accessToken;
+          updateUserInfo(response);
+        }
+      }, 
+      {
+        scope:'email,user_likes,user_interests'
+      });     
+    }
+  });
 }
 
 function updateUserInfo(response) {
  FB.api('/me', function(response) {
-   document.getElementById('user-info').innerHTML = '<img src="https://graph.facebook.com/' + response.id + '/picture">' + response.name;
+   document.getElementById('profile_pic').innerHTML = '<img src="https://graph.facebook.com/' + response.id + '/picture">';
+   document.getElementById('username').innerHTML = response.name;
  });
 }
 
