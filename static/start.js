@@ -119,11 +119,11 @@ function footer_sub_menu_interactions(){
 	
 function login_handler(){
 	$("#login").onButtonTap(function(){
-    loginUser();
+    //loginUser();
 		$("#login_container").addClass("hidden");
 		$("#footer_container").removeClass("hidden");            
 		$("#feed_container").removeClass("hidden");
-    $("#user_container").removeClass("hidden");
+        $("#user_container").removeClass("hidden");
         //call login check function, go to homepage
     });
     
