@@ -34,9 +34,6 @@ function closeContainers(){
 	if(!($("feed_container").hasClass("hidden"))){
 		$("#feed_container").addClass("hidden");
 	}
-    if(!($("article_container").hasClass("hidden"))){
-		$("#article_container").addClass("hidden");
-	}
 }
 
 function footer_interactions(){
@@ -112,7 +109,8 @@ function footer_sub_menu_interactions(){
     });
     
     $("#back").onButtonTap(function(){
-        $("#article_container").addClass("hidden");
+        window.top.location= './startScreens.html';
+        $("#login_container").addClass("hidden");
         $("#feed_container").removeClass("hidden");
     })
 }

@@ -31,7 +31,6 @@
                }
             }
             patchBind();
-            //will be defined in a js file once the css/html is finalized
         });
     </script>
 </head>
@@ -40,24 +39,12 @@
     <!-- =========
         Feed
     ===========-->
-
-    <div id='feed_container' class= 'hidden'>
-    </div>
-    
-    <div id='article_container' class='hidden transition'>
-        <div id="article_header">
-            <div id='back' class= 'header_container borbox'>
-                <img id="back_img" class= 'icon' src="style/icons/back.png" />
-            </div>
-        </div>
-        <iframe id="article"></iframe>
+    <div id='feed_container'>
     </div>
 
     <!--=============
         Profile
     ===============-->
-    
-    <!--contains the user info and a link to their facebook profile-->
     <div id='user_container' class = 'hidden'>
         <div id='demographics'>
             <div id= "profile_pic"></div>
@@ -124,7 +111,7 @@
         Login Page
     ===============-->
     
-    <div id='login_container' >
+    <div id='login_container' class='hidden'>
         <div id='app_title'>
             News Nibbler
         </div>
@@ -170,7 +157,7 @@
     <!--=============
         Footer
     ==============-->
-    <div id='footer_container' class='hidden'>
+    <div id='footer_container'>
         <div id= 'menus' class="transition">
             <!--============
                 Menus
