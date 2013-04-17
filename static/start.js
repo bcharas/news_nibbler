@@ -15,7 +15,7 @@ function clearMenu(){
 }
 
 function closeContainers(){
-	//console.log("trace2");
+	////console.log("trace2");
 	if(!($("#login_container").hasClass("hidden"))){
 		$("#login_container").addClass("hidden");
 	}
@@ -133,6 +133,7 @@ function login_handler(){
         $("#create_container").addClass("hidden");
         $("#feed_container").removeClass("hidden");
         $("#footer_container").removeClass("hidden");
+		$("#feed_container").removeClass("hidden");
     });
 }
 	
