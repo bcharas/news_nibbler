@@ -45,6 +45,7 @@ body{
     font-size: 10px;
     color: #8D41D6;
     font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+
 }
 
 
@@ -346,7 +347,6 @@ body{
 
 
 .listing {
-  position: relative;
   margin-left: 20px;
   margin-top: 5px;
   margin-bottom:5px;
