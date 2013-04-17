@@ -179,7 +179,7 @@ function post_feed_entry(entry, id){
                 console.log("opening...");;
                 localStorage.link = entry.link;
                 closeContainers();
-                window.top.location= './articl.html';
+                window.top.location= './article.html';
 			});
 }
 /*
