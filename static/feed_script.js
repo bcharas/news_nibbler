@@ -1,10 +1,10 @@
-var reddit = "http://www.reddit.com/.rss";
-var digg = "http://www.digg.com/rss/index.xml";
-var cnn = "http://rss.cnn.com/rss/cnn_topstories.rss"
-var hacker_news = "https://news.ycombinator.com/rss";
+//var reddit = "http://www.reddit.com/.rss";
+//var digg = "http://www.digg.com/rss/index.xml";
+//var cnn = "http://rss.cnn.com/rss/cnn_topstories.rss"
 
 
-window.numFeeds = 4;
+
+window.numFeeds = 3;
 window.numEntries = 4;
 window.this_feed_num = 0;
 window.all_feeds_loaded = false;
@@ -34,6 +34,7 @@ function load_all_feeds(){
 		var first_feed = first_feed_info.connection;
 		first_feed.setNumEntries(4);
 		var load_contents = function(result){
+										//console.log("first feed name: " + first_feed.name);
 										load_feed_contents(result, 0);
 									};
 		first_feed.load(load_contents);
@@ -42,14 +43,13 @@ function load_all_feeds(){
 
 function load_next_feed(feed_num){
 	feed_num++;
-	//console.log("next feed num: " + feed_num);
 	if (feed_num >= window.numFeeds){
-		//console.log("\nall feeds loaded");
 		window.all_feeds_loaded = true;
 		post_merged_feed();
 	}
 	else{
 		var feed_to_load = window.user_feeds[feed_num];
+		//console.log("test");
 		if (feed_to_load.ignore){
 			load_next_feed(feed_num);
 			return;
@@ -86,25 +86,20 @@ function load_feed_contents(result, feed_num){
 		}
     }
 	else{
-		//console.log("ERROR");
-		$("#current_src").text("ERROR WHILE CONSTRUCTING FEED");
+		console.log("Error while loading feed contents");
+		return null;
 	}
 }
 
 function post_merged_feed(){
-	//console.log("posting merged feed");
 	var entries_per_feed = 4;
 	var entry_num = 0;
 	for (var i = 0; i < entries_per_feed; i++){	
 		for (var j = 0; j < window.num_feeds; j++){
 			var saved_feed = window.user_feeds[j];
 			var this_feed = window.active_feeds[j];			
-			//console.log("(feed #, entry #) (" + j + ", " + i + ")");
-			//console.log("ignored: " + saved_feed.ignore);
-			//console.log(this_feed);
 			if (!(saved_feed.ignore)){
 				var this_entry = this_feed[i];
-				//console.log(this_entry.link);
 				post_feed_entry(this_entry, entry_num);
 				entry_num++;
 			}
@@ -164,9 +159,15 @@ function post_feed_entry(entry, id){
 				
 
 function init_feeds(){
+	//console.log("initializing");
+	//load_from_local_storage();
+	var container = $("#browser_container");
+	var directory_html = "<div id='directory'></div>";
+	container.append(directory_html);
 	default_feed_directory();
 	publish_feed_directory();
 	load_all_feeds();
+	//save_to_local_storage();
 }
 
 google.setOnLoadCallback(init_feeds);
