@@ -134,6 +134,15 @@ body{
     padding-bottom: 5px;
 }
 
+#feed_title{
+    height: 50px;
+    background: white;
+    margin-top: 10px;
+    font-size: 40px;
+    color: #000000;
+    text-align:center;
+}
+
 /*Login*/
 
 .login{
@@ -404,4 +413,8 @@ body{
 	color: #FFFFFF;
 	font-size: 17px;
 	border: 2px solid black;
+}
+
+.deadspace{
+	color: #FFFFFF;
 }

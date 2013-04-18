@@ -1,7 +1,4 @@
-//http://www.cookingwithfriendsclub.com/index.php?/rss/blog
-
 window.user_feeds = [];
-//default_feed_directory();
 
 function Feed(name, url){
 	this.feed_name = name;
@@ -12,7 +9,6 @@ function Feed(name, url){
 
 function default_feed_directory(){
 	window.user_feeds = [];
-	//console.log("getting default directory...");
 	var reddit = new Feed("Reddit", "http://www.reddit.com/.rss");	
 	var digg = new Feed("Digg", "http://www.digg.com/rss/index.xml");
 	var cnn = new Feed("CNN", "http://rss.cnn.com/rss/cnn_topstories.rss");
@@ -62,13 +58,11 @@ function delete_feed(name){
 			return;
 		}
 	}
-	console.log("Feed not found");
 	return;
 }
 
 //button to reload feeds (more recent articles, update to changes in feeds)
 function rebuild_feeds(){
-	console.log("\n\nRESETING FEEDS...");
 	window.this_feed_num = 0;
 	window.all_feeds_loaded = false;
 	window.has_published = false;
@@ -76,6 +70,7 @@ function rebuild_feeds(){
 	$("#directory").empty();
 	publish_feed_directory();
 	load_all_feeds();
+	custom_new_feed_entry();
 }
 
 function custom_new_feed_entry(){
@@ -114,10 +109,10 @@ function save_to_local_storage(){
 		var app_name = "news_nibbler";
 		var key = "user_feeds";
 		localStorage[app_name + key] = JSON.stringify(window.user_feeds);
-		console.log("saved");
+		//console.log("saved");
 	}
 	else{
-		console.log("unable to access local storage");
+		//console.log("unable to access local storage");
 	}
 }
 			
@@ -131,9 +126,9 @@ function load_from_local_storage(){
 				default_feed_directory();
 				return;
 			}
-			console.log(saved_value);
+			//console.log(saved_value);
 			window.user_feeds = JSON.parse(JSON.stringify(saved_value));
-			console.log("load success");
+			//console.log("load success");
 		}
 		else{
 			default_feed_directory();
@@ -152,14 +147,14 @@ code to allow temporary ignoring / unignoring of feeds
 
 function unignore_feed(div, feed){
 	//window.numFeeds++;
-	//console.log("unignoring feed");
+	////console.log("unignoring feed");
 	feed.ignore = false;
 	if (div.hasClass("ignored_feed")){
-		//console.log("removing ignore class");
+		////console.log("removing ignore class");
 		div.removeClass("ignored_feed");
 	}
 	if (!(div.hasClass("listing"))){
-		//console.log("adding listing class");
+		////console.log("adding listing class");
 		div.addClass("listing");
 	}
 	div.unbind('click', function(){
@@ -174,14 +169,14 @@ function unignore_feed(div, feed){
 
 function ignore_feed(div, feed){
 	//window.numFeeds--;
-	//console.log("ignoring feed");
+	////console.log("ignoring feed");
 	feed.ignore = true;
 	if (div.hasClass("listing")){
-		//console.log("removing listing class");
+		////console.log("removing listing class");
 		div.removeClass("listing");
 	}
 	if (!(div.hasClass("ignored_feed"))){
-		//console.log("adding ignore class");
+		////console.log("adding ignore class");
 		div.addClass("ignored_feed");
 	}
 	div.unbind('click', function(){
@@ -190,7 +185,7 @@ function ignore_feed(div, feed){
 	div.bind('click',function(){
 					unignore_feed(div, feed);
 			});
-	//console.log("attempting ignore on: " + feed.feed_name + " (current ignore status: " + feed.ignore +")");
+	////console.log("attempting ignore on: " + feed.feed_name + " (current ignore status: " + feed.ignore +")");
 	rebuild_feeds();
 }
 */

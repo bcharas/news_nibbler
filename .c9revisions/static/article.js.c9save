@@ -1,0 +1,5 @@
+{"ts":1366240991804,"silentsave":true,"restoring":false,"patch":[[{"diffs":[[1,"function loadArticle(){\n"]],"start1":0,"start2":0,"length1":0,"length2":24}]],"length":24}
+{"contributors":[],"silentsave":false,"ts":1366240849191,"patch":[[{"diffs":[[0,"icle(){\n"],[1,"    var link = localStorage.link;\n    \n\n}"]],"start1":16,"start2":16,"length1":8,"length2":49}]],"length":65,"saved":false}
+{"ts":1366240907877,"patch":[[{"diffs":[[0,"nk;\n    "],[1,"$(\"#article\").attr(\"src\", link);"],[0,"\n\n}"]],"start1":54,"start2":54,"length1":11,"length2":43}]],"length":97,"saved":false}
+{"ts":1366240917422,"patch":[[{"diffs":[[0,"ink);\n\n}"],[1,"\n\nloadArticle();"]],"start1":89,"start2":89,"length1":8,"length2":24}]],"length":113,"saved":false}
+{"contributors":[],"silentsave":false,"ts":1366241018240,"patch":[[{"diffs":[[0,"icle(){\n"],[1,"    var link = localStorage.link;\n    $(\"#article\").attr(\"src\", link);\n    console.log(\"LOADED ARTICLE\"+link);\n}\n\nloadArticle();"]],"start1":16,"start2":16,"length1":8,"length2":136}]],"length":152,"saved":false}
