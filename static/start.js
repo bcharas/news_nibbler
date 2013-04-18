@@ -109,8 +109,7 @@ function footer_sub_menu_interactions(){
     });
     
     $("#back").onButtonTap(function(){
-        window.top.location= './startScreens.html';
-        $("#login_container").addClass("hidden");
+        $("#article_container").addClass("hidden");
         $("#feed_container").removeClass("hidden");
     })
 }

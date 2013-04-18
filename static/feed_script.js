@@ -179,7 +179,9 @@ function post_feed_entry(entry, id){
                 console.log("opening...");;
                 localStorage.link = entry.link;
                 closeContainers();
-                window.top.location= './article.html';
+                $("#article").attr("src", entry.link);
+                $("#article_container").removeClass("hidden");
+                $("#feed_container").addClass("hidden");
 			});
 }
 /*
