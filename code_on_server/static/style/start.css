@@ -1,0 +1,439 @@
+/*General Practices*/
+/*-----Taken off evan shapiro gituhub, generic mobile settings------*/
+
+/* turn off the annoying highlight on a tap (we provide our own visual feedback) */
+* {
+    -webkit-tap-highlight-color: transparent;
+    -moz-tap-highlight-color: transparent;
+    tap-highlight-color: transparent;
+}
+
+/* prevent the user from highlighting any text */
+* {
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
+/* allow highlighting text in inputs */
+input {
+    -webkit-user-select: text;
+    -moz-user-select: text;
+    -ms-user-select: text;
+    user-select: text;
+    display:block;
+    margin-left:auto;
+    margin-right:auto;
+}
+
+/*stolen off evan shapiro github */
+.transition {
+    -webkit-transition: all .5s ease-in-out;
+    -moz-transition: all .5s ease-in-out;
+    -o-transition: all .5s ease-in-out;
+    transition: all .5s ease-in-out;
+
+    /* prevents flickering and other weirdness */
+    -webkit-backface-visibility: hidden;
+    -moz-backface-visibility: hidden;
+    -ms-backface-visibility: hidden;
+    backface-visibility: hidden;
+}
+
+body{
+    font-size: 10px;
+    color: #8D41D6;
+    font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+
+}
+
+
+
+/* Profile */
+
+#demographics{
+    position:relative;
+    top:0;
+    left:0;
+    right:0;
+    height:70px;
+}
+
+#profile_pic{
+    display: inline-block;
+    background: red;
+    margin-top:10px;
+    margin-left:10px;
+    width: 50px;
+    height: 50px;
+}
+
+#username{
+    position: relative;
+    bottom: 35px;
+    color: black;
+    font-size:20px;
+    padding: 10px;
+    vertical-align:text-top;
+    display:inline-block;
+}
+
+#prof_log{
+    font-size:15px;
+    padding: 3px;
+    margin-left:auto;
+    border:1px solid #1A1A1A;
+    color: black;
+    background: blue;
+    display:inline-block;
+    position:absolute;
+    right:1%;
+    bottom: 5px;
+}
+
+#user_subs{
+}
+
+
+.user_tab{
+    font-size: 20px;
+    color: white;
+    display:inline-block;
+    padding-top:10px;
+    padding-bottom:8px;
+    text-align:center;
+    width: 50%;
+    border:1px solid #1A1A1A;
+    
+}
+
+.user_tab:hover{
+    background: black;
+}
+
+#user_menu{
+    position: relative;
+    color:white;
+    font-size:20px;
+    height: 40px;
+    width: 100%;
+    background:#8D41D6;
+}
+
+
+#browse_label{
+    color: black;
+    text-align:center;
+    font-size: 15px;
+}
+
+#search_bar{
+    background: #8D41D6;
+    border:1px solid #1A1A1A;
+    padding-bottom: 5px;
+}
+
+#add_remove {
+  text-align: center;
+  padding: 10px;
+  background: blue;
+  color: white;
+}
+
+/*Login*/
+
+.login{
+    margin-top:20px;
+    margin-bottom:20px;
+}
+
+#login_container{
+    position: fixed;
+    position-top:0;
+    height: 100%;
+    width:100%;
+    color:white;
+    text-align:center;
+    background:#8D41D6;
+    font-size: 20px;
+}
+
+#app_title{
+    margin-top:30px;
+    margin-bottom: 20px;
+    text-align:inherit;
+    font-size:50px;
+}
+
+#non_user{
+    margin-top:30px;
+    margin-bottom:50px;
+    width:100%;
+    text-align:inherit;
+}
+
+#to_create{ 
+    padding:5px;
+    margin-top:10px;
+    margin-left:auto;
+    margin-right:auto; 
+    background:red;
+    width:80px;
+    border:2px solid black;
+    border-radius: 5px;    
+}
+
+/* Create Profile */
+
+#likes{
+    display:inline;
+}
+
+#friends{
+    display:inline;
+}
+
+#create_title{
+    margin-top:30px;
+    margin-bottom:20px;
+    font-size:40px;
+}
+
+#create_container{
+    position: fixed;
+    position-top:0;
+    width:100%;
+    color:white;
+    text-align:center;
+    background:#8D41D6;
+    font-size: 20px;
+}
+
+#facebook_imports{
+    margin-top:10px;
+    margin-bottom: 20px;
+}
+
+#create{
+    padding:5px;
+    margin-top:10px;
+    margin-left:auto;
+    margin-right:auto;
+    margin-bottom: 30px;
+    background:red;
+    width:80px;
+    border:2px solid black;
+    border-radius: 5px;    
+}
+
+/* Footer/Menus */ 
+
+.borbox{
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    float:left;
+    box-shadow:2px 0 1px #888888;
+}
+
+.icon_container{
+    display:inline-block;
+    width: 25%;
+    height:50px;
+    padding-top:7px;
+    border:1px solid #1A1A1A;
+}
+
+.icon {
+    width:35px;
+    height:35px;
+}
+
+.hidden{
+    display:none;
+}
+
+.header_container{
+    width:30%;
+    height:50px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    border: 1px solid #1A1A1A;
+    
+}
+
+
+.header_container:hover{
+    background: red;
+}
+
+#footer_container{
+    position:fixed;
+    bottom:0;
+    right:0;
+    left:0;
+}
+
+.menu_tab{
+    font-size: 20px;
+    color: white;
+    display:inline-block;
+    padding-top:9px;
+    padding-bottom: 19px;
+    text-align:center;
+    border:1px solid #1A1A1A;
+}
+
+.one_option{
+    width:100%;
+}
+
+.two_options{
+    width:50%;
+}
+.menu_tab:hover{
+    background:black;
+}
+
+
+#menus{
+    background:blue;
+    height:0;
+    position: fixed;
+    bottom:50px;
+    left:0;
+    right:0;
+    text-align:center;
+}
+
+#article_header{
+    text-align:center;
+    background:#8D41D6;
+    height: 50px;
+    position: relative;
+    top:0;
+    right:0;
+    left:0;    
+}
+
+#article{
+    height:500px;
+    width:100%;
+    scrolling: no;
+}
+
+#footer{
+    text-align:center;
+    background:#8D41D6;
+    height: 50px;
+    position: fixed;
+    bottom:0;
+    right:0;
+    left:0;
+}
+
+
+#feed_container{
+    overflow-x:hidden;
+}
+
+/* Ben's code */
+
+
+.listing {
+  margin-left: 20px;
+  margin-top: 5px;
+  margin-bottom:5px;
+  margin-right: 20px;
+  border-radius: 5px;
+  -moz-border-radius: 5px;
+  padding: 10px;
+  color: #000000;
+  font-size: 17px;
+  border: 3px solid #8D41D6;
+}
+
+
+.headline {
+  font-size: 25px;
+  font-weight: bold;
+  text-align: center;
+}
+
+
+.snippet{
+  display: inline-block;
+  font-style: bold;
+  /*text-align: right;*/
+  /*font-size: 17px;*/
+  /*margin-right: 20px;*/
+  /*width: 100px;*/
+}
+
+.date{
+  display: block;
+  font-size: 10px;
+  word-wrap: break-word;
+}
+
+
+.pushbutton {
+  display: inline-block;
+  text-decoration: none;
+  color:#000000;
+  background-color: #FFFFFF;
+  padding: 5px;
+  margin: 5px;
+  border-radius: 5px;
+  -moz-border-radius: 5px;
+}
+
+.button {
+  padding:5px;
+  margin-left: auto;
+  margin-right: auto;
+  background: blue;
+  text-align: center;
+  width: 80px;
+  border: 2px solid black;
+  border-radius: 5px;
+  -moz-border-radius: 5px;
+}
+
+.headers{
+	font-size: 25px;
+	font-weight: bold;
+}
+
+.ignored_feed{
+  position: relative;
+  margin: 50px 50px;
+  background-color: #b0b0b0;
+  border-radius: 5px;
+  -moz-border-radius: 5px;
+  padding: 10px;
+  color: #FFFFFF;
+  font-size: 17px;
+  border: 2px solid black;
+}
+
+#feed_title{
+  height: 50px;
+  background: white;
+  margin-top: 10px;
+  font-size: 40px;
+  color: #000000;
+  text-align:center;
+}
+
+.deadspace {
+  height: 50px;
+  background: white;
+  color: white;
+}
+
+.listing {
+  display: block;
+  word-wrap: break-word;
+}
