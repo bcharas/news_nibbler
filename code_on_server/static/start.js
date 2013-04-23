@@ -1,17 +1,17 @@
 function clearMenu(){
     if(!($("#search_menu").hasClass("hidden"))){
-        $("#search_cont").css("background", "#8D41D6");
+        $("#search_cont").css("background", "#3B2BAA");
         $("#search_menu").addClass("hidden");
     }
     if(!($("#profile_menu").hasClass("hidden"))){
-        $("#prof_cont").css("background", "#8D41D6");
+        $("#prof_cont").css("background", "#3B2BAA");
         $("#profile_menu").addClass("hidden");
     }
     if(!($("#rss_menu").hasClass("hidden"))){
-        $("#rss_cont").css("background", "#8D41D6");
+        $("#rss_cont").css("background", "#3B2BAA");
         $("#rss_menu").addClass("hidden");
     }
-    $("#sett_cont").css("background", "#8D41D6");
+    $("#sett_cont").css("background", "#3B2BAA");
 }
 
 function closeContainers(){
@@ -43,27 +43,27 @@ function footer_interactions(){
 	$("#prof_cont").onButtonTap(function(){
 		clearMenu();
 		$("#profile_menu").removeClass("hidden");
-        $("#prof_cont").css("background", "blue");
+        $("#prof_cont").css("background", "#1A0E6E");
 		$("#menus").css("height", "50px");
 	});
 
     $("#search_cont").onButtonTap(function(){
         clearMenu();
         $("#search_menu").removeClass("hidden");
-        $("#search_cont").css("background", "blue");
+        $("#search_cont").css("background", "#1A0E6E");
         $("#menus").css("height", "50px");
     });
     
     $("#rss_cont").onButtonTap(function(){
         clearMenu();
         $("#rss_menu").removeClass("hidden");
-        $("#rss_cont").css("background", "blue");
+        $("#rss_cont").css("background", "#1A0E6E");
         $("#menus").css("height", "50px");
     });
    
    $("#sett_cont").onButtonTap(function(){
         clearMenu();
-        $("#sett_cont").css("background", "blue");
+        $("#sett_cont").css("background", "#1A0E6E");
         $("#menus").css("height", "0");
     });
 }

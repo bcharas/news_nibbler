@@ -147,14 +147,14 @@ function post_feed_entry(entry, id){
 	if ((entry.date !== undefined) && (entry.date !== "")){
 		div.append("<br/>" + "<div class='date'>" + entry.publishedDate + "</div>");
 	}
-	
+	div.append("<div class='seperator'></div>")
 	if ((entry.contentSnippet !== undefined) && (entry.contentSnippet !== "")){
 		div.append("<br/>" + "<div class='snippet'>" + entry.contentSnippet + "</div>");
 	}
 	if ((entry.link !== undefined) && (entry.link !== "")){
 		div.append("<br/>" + "<div class='date'>" + entry.link + "</div>");
 	}
-	div.append("<br/>" + "<div class='date'>" + "Because you subscribe to: " + entry.feed_src.feed_name + "</div>");
+	div.append("<div class='source'>" + "Because you subscribe to: " + entry.feed_src.feed_name + "</div>");
 	div.click(function(){
              //   localStorage.link = entry.link;
                 closeContainers();

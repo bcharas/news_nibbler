@@ -43,7 +43,7 @@ input {
 
 body{
     font-size: 10px;
-    color: #8D41D6;
+    color: black;
     font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
 
 }
@@ -118,7 +118,7 @@ body{
     font-size:20px;
     height: 40px;
     width: 100%;
-    background:#8D41D6;
+    background:#3B2BAA;
 }
 
 
@@ -129,7 +129,7 @@ body{
 }
 
 #search_bar{
-    background: #8D41D6;
+    background: #3B2BAA;
     border:1px solid #1A1A1A;
     padding-bottom: 5px;
 }
@@ -155,7 +155,7 @@ body{
     width:100%;
     color:white;
     text-align:center;
-    background:#8D41D6;
+    background:#3B2BAA;
     font-size: 20px;
 }
 
@@ -206,7 +206,7 @@ body{
     width:100%;
     color:white;
     text-align:center;
-    background:#8D41D6;
+    background:#3B2BAA;
     font-size: 20px;
 }
 
@@ -298,7 +298,7 @@ body{
 
 
 #menus{
-    background:blue;
+    background:#1A0E6E;
     height:0;
     position: fixed;
     bottom:50px;
@@ -309,7 +309,7 @@ body{
 
 #article_header{
     text-align:center;
-    background:#8D41D6;
+    background#3B2BAA;
     height: 50px;
     position: relative;
     top:0;
@@ -325,7 +325,7 @@ body{
 
 #footer{
     text-align:center;
-    background:#8D41D6;
+    background:#3B2BAA;
     height: 50px;
     position: fixed;
     bottom:0;
@@ -346,35 +346,60 @@ body{
   margin-top: 5px;
   margin-bottom:5px;
   margin-right: 20px;
-  border-radius: 5px;
-  -moz-border-radius: 5px;
+  border-radius: 2px;
+  -moz-border-radius: 2px;
   padding: 10px;
   color: #000000;
   font-size: 17px;
-  border: 3px solid #8D41D6;
+  border: 1px solid #A6A6A6;
+  display: block;
+  word-wrap: break-word;
 }
 
 
 .headline {
   font-size: 25px;
-  font-weight: bold;
   text-align: center;
+  color:#2C2C2C;
 }
 
+.seperator{
+    margin-top:10px;
+    color:#353535;
+    background:#353535;
+    width:60%;
+    margin-left:20%;
+    height:2px;
+}
 
 .snippet{
   display: inline-block;
   font-style: bold;
+  padding-bottom:10px;
+  color:#353535;  
   /*text-align: right;*/
   /*font-size: 17px;*/
   /*margin-right: 20px;*/
   /*width: 100px;*/
 }
 
+.source{
+  display: block;
+  font-size: 10px;
+  word-wrap: break-word;
+  font-weight:bold;
+  color:#353535;
+  text-align:center;
+    
+}
+
 .date{
   display: block;
   font-size: 10px;
   word-wrap: break-word;
+  font-style:italic;
+  color:#A6A6A6;
+  padding-bottom:5px;
 }
 
 
@@ -423,7 +448,7 @@ body{
   background: white;
   margin-top: 10px;
   font-size: 40px;
-  color: #000000;
+  color: #353535;
   text-align:center;
 }
 
