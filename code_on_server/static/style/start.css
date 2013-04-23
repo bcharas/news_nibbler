@@ -336,12 +336,14 @@ body{
 
 #feed_container{
     overflow-x:hidden;
+    background:#F1F1F1;
 }
 
 /* Ben's code */
 
 
 .listing {
+  background: white;
   margin-left: 20px;
   margin-top: 5px;
   margin-bottom:5px;
@@ -445,7 +447,7 @@ body{
 
 #feed_title{
   height: 50px;
-  background: white;
+  background: #F1F1F1;
   margin-top: 10px;
   font-size: 40px;
   color: #353535;
