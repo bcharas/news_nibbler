@@ -54,6 +54,9 @@ body{
     text-align:center;
 }
 
+
+/*figure out iframe issues
+work on link back button etc. */
 /* Profile */
 
 #demographics{
@@ -270,11 +273,24 @@ body{
 }
 
 .header_container{
-    width:30%;
-    height:50px;
-    padding-top: 5px;
-    padding-bottom: 5px;
+    text-align:center;
+    background:#3B2BAA;
+    height: 44px;
+    width:50px;
+    text-align: center;
+    position: fixed;
+    left:0;
+    top:0;
+    border-bottom-right-radius: 15px; 
+    border-top:0;
+    -moz-border-bottom-right-radius:15px;
+    padding-top:3px;
+    padding-bottom:5px;
+    padding-right:5px;
+    color: #000000;
     border: 1px solid #1A1A1A;
+    display: block;
+    word-wrap: break-word; 
     
 }
 
@@ -322,23 +338,17 @@ body{
     text-align:center;
 }
 
-#article_header{
-    text-align:center;
-    background: #3B2BAA;
-    height: 50px;
-    position: relative;
-    top:0;
-    right:0;
-    left:0;    
-}
-
 #article{
     height:500px;
     width:100%;
     scrolling: no;
 }
 
+.container{
+    float:left;
+}
 #footer{
+    clear:both;
     text-align:center;
     background:#3B2BAA;
     height: 50px;
