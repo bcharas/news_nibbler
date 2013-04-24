@@ -44,7 +44,6 @@
     ===========-->
 
     <div id='feed_container' class=''>
-      <div id="feed_title">Your Feed</div>
       <div id='feed_box'></div>
       <div class='deadspace'>i</div>
     </div>
@@ -76,11 +75,10 @@
         <div id='demographics'>
             <div id= "profile_pic"></div>
             <div id="username"></div>
-            <div id="prof_log" class='logout'>logout</div>
         </div>
         
         <div id='user_menu' class='menu'>
-            <div id= 'user_subs' class='user_tab borbox'>Subscriptions</div>
+            <div id= 'user_subs' class='user_tab borbox selected'>Subscriptions</div>
             <div id = 'user_friends' class='user_tab borbox'>Friends</div>
         </div>
     <!--contains the users RSS and friend data to look through, only one list
@@ -115,23 +113,11 @@
     <div id ='browser_container' class='hidden'>
         <!-- can search through RSS feeds -->
         <div id='browse'> 
-            <div id='search_bar'>
-                <form id="search_form">
-                    <div id='browse_label'>
-                        Browse for RSS feeds:
-                    </div>
-                    <input id="browse_search" type= 'text' class='search'>
-                </form>
-            </div>
-            <ul>
-                <!--contains random, or similar rss feeds to try-->
-            </ul>
         </div>
-        <div id='recommends'>
-            <ul>
-                <!--contains the list of rss's recommended to the user-->
-            </ul>
+        <div id='feed_subs'>
+            <!--contains random, or similar rss feeds to try-->
         </div>
+        <div class="deadspace">i</div>
     </div>
     
     <!--=============
@@ -142,6 +128,9 @@
         <div id='app_title'>
             News Nibbler
         </div>
+        <div id="tag_line">
+            News as a social experience.
+        </div>
 <!--        <form class= 'login'>
             <label for='username'>User Name:</label>
             <input id="username_login" type='text' name='username'/>
@@ -149,10 +138,6 @@
             <input id="password_login" type="password" name='password'/>
         </form> -->
         <div id="login" class="button">Login</div>
-        <div id='non_user' class='hidden'>
-            Not a user? Create your profile via facebook:
-            <div id='to_create'>Create Account</div>
-        </div>
     </div>
     <!--============
         Create Page

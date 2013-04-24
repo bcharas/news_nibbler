@@ -19,15 +19,16 @@ function default_feed_directory(){
 }
 
 function publish_feed_listing(feed, container){
-	var div = "<div class='listing' ";
+	var div = "<div class='topic' ";
 	div += "id='" + feed.feed_name + "'></div>"
 	container.append(div);
-	var to_publish = "<br/><div class='headline'"
+	var to_publish = "<div class='headline'";
 	to_publish += ">";
 	to_publish += feed.feed_name;
-	to_publish += ": ";
-	to_publish += feed.feed_src;
 	to_publish += "</div>";
+    to_publish += "<div class = 'date topic_link'>";
+    to_publish += feed.feed_src;
+    to_publish += "</div>";
 	var published_div = $("#" + feed.feed_name);
 	published_div.selected = true;
 	published_div.append(to_publish);
@@ -81,7 +82,7 @@ function ignore_feed(div, feed){
 }
 */
 function publish_feed_directory(){	
-	var directory = $("#browser_container");
+	var directory = $("#feed_subs");
 	////console.log("user feeds length: " + window.user_feeds.length);
 	for (var i = 0; i < window.user_feeds.length; i++){
 		var feed = window.user_feeds[i];
@@ -124,13 +125,13 @@ function rebuild_feeds(){
 }
 
 function custom_new_feed_entry(){
-	var directory = $("#browser_container");
-	var div_html = "<div class='listing' ";
-	div_html += "id='custom_feed'>Add another feed: </div>";
+	var directory = $("#browse");
+	var div_html = "<div class='snippet' ";
+	div_html += "id='custom_feed'><div class= 'headline'>Add another feed:</div> </div>";
 	directory.append(div_html);
 	var new_div = $("#custom_feed");
-	var name_input = "<br/>Name: <input id='name_input'></input>";
-	var url_input = "Url:<input id='url_input'></input>";
+	var name_input = "Name <input id='name_input' class='data'></input>";
+	var url_input = "<br/> Url<input id='url_input' class='data'></input>";
 	var feed_generator = "<div id='generator_button'> Generate New Feed </div>";
 	new_div.append(name_input);
 	new_div.append(url_input);
