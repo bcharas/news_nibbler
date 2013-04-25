@@ -13,7 +13,6 @@ function clearMenu(){
 }
 
 function closeContainers(){
-	//console.log("trace2");
 	if(!($("#login_container").hasClass("hidden"))){
 		$("#login_container").addClass("hidden");
 	}
