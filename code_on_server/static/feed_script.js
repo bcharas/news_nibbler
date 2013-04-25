@@ -21,7 +21,8 @@ function default_feeds(){
 	window.feedList = feedList;
 	window.num_feeds = window.feedList.length;
 }
-		
+
+//loads contents of all user feeds and posts them to feed page	
 function load_all_feeds(){
 	window.active_feeds = [];
 	window.num_feeds = window.user_feeds.length;
@@ -38,12 +39,40 @@ function load_all_feeds(){
 									};
 		first_feed.load(load_contents);
 	}
-}	
+}
 
+//parses contents of a given feed
+function load_feed_contents(result, feed_num){
+	if (!result.error){
+		var feed_contents = [];
+		var feed_id = window.user_feeds[feed_num];
+		for (var i = 0; i < result.feed.entries.length; i++) {	
+			var entry = result.feed.entries[i];
+			entry.feed_src = feed_id;
+			feed_contents.push(entry);
+		}
+		window.active_feeds.push(feed_contents);
+		if ((window.all_feeds_loaded) && (!(window.has_published))){
+			window.has_published = true;
+			post_merged_feed();
+		}
+		else{
+			load_next_feed(feed_num);
+		}
+    }
+	else{
+		console.log("ERROR");
+		$("#current_src").text("ERROR WHILE CONSTRUCTING FEED");
+	}
+}
+
+//checks if any user feeds remain unparsed
+//if so, then it parses them
+//otherwise it publishes the feeds
 function load_next_feed(feed_num){
 	feed_num++;
 	//console.log("next feed num: " + feed_num);
-	if (feed_num >= window.numFeeds){
+	if (feed_num >= window.num_feeds){
 		//console.log("\nall feeds loaded");
 		window.all_feeds_loaded = true;
 		post_merged_feed();
@@ -67,30 +96,8 @@ function load_next_feed(feed_num){
 	}
 }
 
-function load_feed_contents(result, feed_num){
-	if (!result.error){
-		var feed_contents = [];
-		var feed_id = window.user_feeds[feed_num];
-		for (var i = 0; i < result.feed.entries.length; i++) {	
-			var entry = result.feed.entries[i];
-			entry.feed_src = feed_id;
-			feed_contents.push(entry);
-		}
-		window.active_feeds.push(feed_contents);
-		if ((window.all_feeds_loaded) && (!(window.has_published))){
-			window.has_published = true;
-			post_merged_feed();
-		}
-		else{
-			load_next_feed(feed_num);
-		}
-    }
-	else{
-		//console.log("ERROR");
-		$("#current_src").text("ERROR WHILE CONSTRUCTING FEED");
-	}
-}
 
+//publishes pre-parsed user feed contents
 function post_merged_feed(){
 	//console.log("posting merged feed");
 	var entries_per_feed = 4;
@@ -99,42 +106,24 @@ function post_merged_feed(){
 		for (var j = 0; j < window.num_feeds; j++){
 			var saved_feed = window.user_feeds[j];
 			var this_feed = window.active_feeds[j];			
-			//console.log("(feed #, entry #) (" + j + ", " + i + ")");
-			//console.log("ignored: " + saved_feed.ignore);
-			//console.log(this_feed);
 			if (!(saved_feed.ignore)){
 				var this_entry = this_feed[i];
 				//console.log(this_entry.link);
 				post_feed_entry(this_entry, entry_num);
+				//console.log("posted entry: " + entry_num);
 				entry_num++;
 			}
 			else{
+				console.log("ignored entry: " + entry_num);
 				entry_num++;
 			}
 		}
 	}
-	custom_new_feed_entry();
+	console.log("feed loaded");
+	//custom_new_feed_entry();
 }
 
-
-/*
-//work in progress: general case html tags, to make code cleaner
-function publishable_entry_field_data(entry, field, css_class){
-	var data = entry.field;
-	if ((data !== undefined) && (data !== "")){
-		var to_publish = "<br/><div class='";
-		to_publish += css_clas + "'>";
-		to_publish += data;
-		to_publish += "</div>";
-		return to_publish;
-	}
-	return null;
-}
-		//div.append("<br/><div class='" + css_class + "'>" + data +  
-*/
-
-
-//given a feed entry, posts it too page
+//publishes pre-parsed contents of a given feed entry
 function post_feed_entry(entry, id){
 	
 	var div_class = "listing";
@@ -164,11 +153,28 @@ function post_feed_entry(entry, id){
 			});
 }
 				
-
+//initializes feed page
 function init_feeds(){
 	default_feed_directory();
 	publish_feed_directory();
 	load_all_feeds();
+	custom_new_feed_entry();
 }
 
 google.setOnLoadCallback(init_feeds);
+
+/*
+//work in progress: general case html tags, to make code cleaner
+function publishable_entry_field_data(entry, field, css_class){
+	var data = entry.field;
+	if ((data !== undefined) && (data !== "")){
+		var to_publish = "<br/><div class='";
+		to_publish += css_clas + "'>";
+		to_publish += data;
+		to_publish += "</div>";
+		return to_publish;
+	}
+	return null;
+}
+		//div.append("<br/><div class='" + css_class + "'>" + data +  
+*/
