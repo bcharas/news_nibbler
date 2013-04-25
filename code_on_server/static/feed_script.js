@@ -159,7 +159,7 @@ function post_feed_entry(entry, id){
              //   localStorage.link = entry.link;
                 closeContainers();
                 $("#article_container").removeClass("hidden");
-				$("#article").attr("src", entry.link);
+				$("#article").attr("data", entry.link);
       //  window.top.location = './article.html';
 			});
 }

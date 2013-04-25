@@ -4,3 +4,6 @@
 {"ts":1366734683362,"patch":[[{"diffs":[[0,"\");\n\t}\n\t"],[1,"    div.append(\"<div class='seperator'>1</div>\")"],[0,"\n\tif ((e"]],"start1":3956,"start2":3956,"length1":16,"length2":64}]],"length":4828,"saved":false}
 {"ts":1366734688108,"patch":[[{"diffs":[[0,"\");\n\t}\n\t"],[-1,"    "],[0,"div.appe"]],"start1":3956,"start2":3956,"length1":20,"length2":16}]],"length":4824,"saved":false}
 {"ts":1366734797873,"patch":[[{"diffs":[[0,"erator'>"],[-1,"1"],[0,"</div>\")"]],"start1":3991,"start2":3991,"length1":17,"length2":16}]],"length":4823,"saved":false}
+{"contributors":[],"silentsave":false,"ts":1366852926370,"patch":[[{"diffs":[[0,"e\")."],[-1,"attr(\"src\", "],[1,"load("],[0,"entr"]],"start1":4592,"start2":4592,"length1":20,"length2":13}]],"length":4816,"saved":false}
+{"ts":1366853044769,"patch":[[{"diffs":[[0,"ticle\")."],[-1,"load("],[1,"attr(\"src\", "],[0,"entry.li"]],"start1":4588,"start2":4588,"length1":21,"length2":28}]],"length":4823,"saved":false}
+{"ts":1366853130220,"patch":[[{"diffs":[[0,").attr(\""],[-1,"src"],[1,"data"],[0,"\", entry"]],"start1":4594,"start2":4594,"length1":19,"length2":20}]],"length":4824,"saved":false}
