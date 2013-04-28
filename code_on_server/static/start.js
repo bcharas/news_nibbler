@@ -112,6 +112,7 @@ function footer_sub_menu_interactions(){
     
     $("#back").onButtonTap(function(event){
         console.log("Back event:", event);
+        $("#article").attr("src", ("load.html"));
         $("#article_container").addClass("hidden");
         $("#feed_container").removeClass("hidden");
     })

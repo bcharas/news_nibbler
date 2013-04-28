@@ -1,0 +1,1 @@
+{"ts":1367182330756,"silentsave":true,"restoring":false,"patch":[[{"diffs":[[1,"function loadArticle(){\n    var link = localStorage.link;\n    $(\"#article\").attr(\"src\", link);\n    console.log(\"LOADED ARTICLE\"+link);\n}\n\nloadArticle();"]],"start1":0,"start2":0,"length1":0,"length2":152}]],"length":152}
