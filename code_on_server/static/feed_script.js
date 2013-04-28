@@ -1,27 +1,11 @@
-var reddit = "http://www.reddit.com/.rss";
-var digg = "http://www.digg.com/rss/index.xml";
-var cnn = "http://rss.cnn.com/rss/cnn_topstories.rss"
-//var hacker_news = "https://news.ycombinator.com/rss";
-var cooking = "http://www.cookingwithfriendsclub.com/index.php?/rss/blog"
+/*
+//moved globals to init.js
+//moved google.load call to init.js
+//moved default_feeds() to init.js
+*/
 
-window.numFeeds = 4;
-window.numEntries = 4;
-window.this_feed_num = 0;
-window.all_feeds_loaded = false;
-window.hasPublished = false;
-
-google.load("feeds", "1");
-
-function default_feeds(){
-	var feedList = [];
-	feedList.push(reddit);
-	feedList.push(digg);
-	feedList.push(cnn);
-	feedList.push(hacker_news);
-	window.feedList = feedList;
-	window.num_feeds = window.feedList.length;
-}
-
+//moved load_all_feeds to parse_feed_data.js
+/*
 //loads contents of all user feeds and posts them to feed page	
 function load_all_feeds(){
 	window.active_feeds = [];
@@ -40,7 +24,10 @@ function load_all_feeds(){
 		first_feed.load(load_contents);
 	}
 }
+*/
 
+//moved load_feed_contents to parse_feed_data.js
+/*
 //parses contents of a given feed
 function load_feed_contents(result, feed_num){
 	if (!result.error){
@@ -65,10 +52,11 @@ function load_feed_contents(result, feed_num){
 		$("#current_src").text("ERROR WHILE CONSTRUCTING FEED");
 	}
 }
+*/
 
-//checks if any user feeds remain unparsed
-//if so, then it parses them
-//otherwise it publishes the feeds
+//moved load_next_feed to parse_feed_data.js
+/*
+//parses any remaining unparsed feeds
 function load_next_feed(feed_num){
 	feed_num++;
 	//console.log("next feed num: " + feed_num);
@@ -95,7 +83,7 @@ function load_next_feed(feed_num){
 		}
 	}
 }
-
+*/
 
 //publishes pre-parsed user feed contents
 function post_merged_feed(){
@@ -153,28 +141,8 @@ function post_feed_entry(entry, id){
 			});
 }
 				
-//initializes feed page
-function init_feeds(){
-	default_feed_directory();
-	publish_feed_directory();
-	load_all_feeds();
-	custom_new_feed_entry();
-}
-
-google.setOnLoadCallback(init_feeds);
-
 /*
-//work in progress: general case html tags, to make code cleaner
-function publishable_entry_field_data(entry, field, css_class){
-	var data = entry.field;
-	if ((data !== undefined) && (data !== "")){
-		var to_publish = "<br/><div class='";
-		to_publish += css_clas + "'>";
-		to_publish += data;
-		to_publish += "</div>";
-		return to_publish;
-	}
-	return null;
-}
-		//div.append("<br/><div class='" + css_class + "'>" + data +  
+//moved init_feeds() to init.js
+//moved google.setOnLoadCallback(init_feeds) to init.js
+//moved publishable_entry_field_data to unused_code.js
 */

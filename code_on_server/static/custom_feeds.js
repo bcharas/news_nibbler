@@ -1,55 +1,30 @@
-// add feed to directory, then reload feed page
-function add_new_feed(name, url){
-	window.numFeeds++;
-	new Feed(name, url);
-	//TODO: check that feed is not already in list
-	rebuild_feeds();
-}
+/*
+//add_new_feed moved to feed.js
+//delete_feed moved to feed.js
+*/
 
-//delete existing feed from directory, then reload
-function delete_feed(name){
-	window.numFeeds--;
-	for (var i = 0; i < window.user_feeds.length; i++){
-		var feed = window.user_feeds[i];
-		if (feed.feed_name == name){
-			window.user_feeds.splice(i, 1);
-			//console.log("Feed '" + name + "' deleted successfully");
-			rebuild_feeds();
-			return;
-		}
-	}			
-}
-
+/*
+//moved to parse_feed_data
 //button to reload feeds (more recent articles, update to changes in feeds)
+//changed name from rebuild_feeds
+//new name: refresh_feeds
 function rebuild_feeds(){
 	//TODO: need a rebuild feet button
 	//console.log("\n\nRESETING FEEDS...");
-	window.this_feed_num = 0;
+	//window.this_feed_num = 0;
 	window.all_feeds_loaded = false;
 	window.has_published = false;
 	$("#feed_box").empty();
 	load_all_feeds();
 }
-
-function custom_new_feed_entry(){
-	var directory = $("#browse");
-	var div_html = "<div class='snippet' ";
-	div_html += "id='custom_feed'><div class= 'headline'>Add another feed:</div> </div>";
-	directory.append(div_html);
-	var new_div = $("#custom_feed");
-	var name_input = "Name <input id='name_input' class='data'></input>";
-	var url_input = "<br/> Url<input id='url_input' class='data'></input>";
-	var feed_generator = "<div id='generator_button'> Generate New Feed </div>";
-	new_div.append(name_input);
-	new_div.append(url_input);
-	new_div.append(feed_generator);
-	
-	var generator = $("#generator_button");
-	generator.click(generate_given_feed);
-	
-}
-
-function generate_given_feed(){
+*/
+//custom_new_feed_entry moved to topic_page.js
+/*
+//moved to topic_page.js
+//topic_page.js or feed.js
+//changed name from generate_feed
+//new name: generate_input_feed
+function generate_feed(){
 	console.log("generating!");
 	var input_name = $("#name_input").val();
 	var input_url = $("#url_input").val();
@@ -61,13 +36,21 @@ function generate_given_feed(){
 		console.log("No feed URL supplied for generator");
 		return;
 	}
+	//
 	if (!(is_unique_feed(input_name, input_url))){
 		console.log("Requested feed uses occupied name or url");
 		return;
 	}
 	test_potential_feed(input_name, input_url);
+	///
+	
+	add_new_feed(input_name, input_url);
+	
 }
-
+*/
+//is_unique_feed moved to feed.js
+/*
+//topic_page.js or feed.js
 function is_unique_feed(name, url){
 	for (var i = 0; i < window.user_feeds.length; i++){
 		var feed = window.user_feeds[i];
@@ -82,9 +65,10 @@ function is_unique_feed(name, url){
 	}
 	return true;
 }
+*/
 
-
-//TODO: check if feed already subscribed to
+//test_potential_feed moved to feed.js
+/*
 //tests a supplied feed to see if malformed input
 function test_potential_feed(name, url){
 	var connection = new google.feeds.Feed(url);
@@ -94,7 +78,10 @@ function test_potential_feed(name, url){
 								};	
 	connection.load(attempt_to_load_feed);
 }
+*/
 
+//parse_test moved to feed.js
+/*
 //tries to load the contents of a given feed to see if valid
 function parse_test(result, name, url, connection){
 	if (!result.error){
@@ -110,68 +97,26 @@ function parse_test(result, name, url, connection){
 	}
 	else{	
 		console.log("Invalid feed");
-		return false;
+		return;
 	}
 }
+*/
 
+//add_validated_feed moved to feed.js
+/*
 //saves a new feed whose contents have been tested and can be parsed 
 function add_validated_feed(name, url, connection){
-	window.numFeeds++;
 	var new_feed = new Object();
 	new_feed.feed_name = name;
 	new_feed.feed_src = url
 	new_feed.connection = connection;
 	window.user_feeds.push(new_feed);
 }
+*/
 
 
-
+/* moved functions
 //connect with user account via MongoDB
-
 //changes in deleted/additional feeds automatically shown on feed page
-
-/*
-function unignore_feed(div, feed){
-	//window.numFeeds++;
-	//console.log("unignoring feed");
-	feed.ignore = false;
-	if (div.hasClass("ignored_feed")){
-		//console.log("removing ignore class");
-		div.removeClass("ignored_feed");
-	}
-	if (!(div.hasClass("listing"))){
-		//console.log("adding listing class");
-		div.addClass("listing");
-	}
-	div.unbind('click', function(){
-					unignore_feed(div, feed);
-				});
-	div.bind('click', function(){
-				ignore_feed(div, feed);
-			});
-	rebuild_feeds();
-}
-	
-
-function ignore_feed(div, feed){
-	//window.numFeeds--;
-	//console.log("ignoring feed");
-	feed.ignore = true;
-	if (div.hasClass("listing")){
-		//console.log("removing listing class");
-		div.removeClass("listing");
-	}
-	if (!(div.hasClass("ignored_feed"))){
-		//console.log("adding ignore class");
-		div.addClass("ignored_feed");
-	}
-	div.unbind('click', function(){
-					ignore_feed(div, feed);
-				});
-	div.bind('click',function(){
-					unignore_feed(div, feed);
-			});
-	//console.log("attempting ignore on: " + feed.feed_name + " (current ignore status: " + feed.ignore +")");
-	rebuild_feeds();
-}
+//ignore/unignore functions moved to unused_code.js
 */
