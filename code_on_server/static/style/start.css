@@ -337,9 +337,16 @@ work on link back button etc. */
     right:0;
     text-align:center;
 }
+#user_fixed_stuff{
+    position:fixed;
+    top:0;
+    left:0;
+    right:0;
+    background:white;
+}
 
 #article{
-    height:500px;
+    height:100%;
     width:100%;
     scrolling: no;
 }
@@ -548,6 +555,13 @@ work on link back button etc. */
   color: #FFFFFF;
   font-size: 17px;
   border: 2px solid black;
+}
+
+#user_lists{
+    overflow-y:scroll;
+    position:relative;
+    top:110px;
+    z-index:-1;
 }
 
 #feed_title{

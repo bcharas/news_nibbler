@@ -1,13 +1,7 @@
 function clearMenu(){
     $("#search_cont").removeClass("selected");
-    if(($("#prof_cont").hasClass("selected"))){
-        $("#prof_cont").removeClass("selected");
-        $("#profile_menu").addClass("hidden");
-    }
-    if($("#rss_cont").hasClass("selected")){
-        $("#rss_cont").removeClass("selected");
-        $("#rss_menu").addClass("hidden");
-    }
+    $("#prof_cont").removeClass("selected");
+    $("#rss_cont").removeClass("selected");
     $("#sett_cont").removeClass("selected");
     $("#menus").css("height", "0");
 }
@@ -38,15 +32,10 @@ function closeContainers(){
 
 function footer_interactions(){
 	$("#prof_cont").onButtonTap(function(){
-        if(!($("#prof_cont").hasClass("selected"))){
-            clearMenu();
-    		$("#profile_menu").removeClass("hidden");
-            $("#prof_cont").addClass("selected");
-    		$("#menus").css("height", "50px");
-        }
-        else{
-            clearMenu();
-        }
+        clearMenu();
+        $("#prof_cont").addClass("selected");
+        closeContainers();
+        $("#user_container").removeClass("hidden");
 	});
     $("#search_cont").onButtonTap(function(){
         clearMenu();
@@ -56,20 +45,18 @@ function footer_interactions(){
     });
     
     $("#rss_cont").onButtonTap(function(){
-        if($("#rss_cont").hasClass("selected")){
-            clearMenu();
-        }
-        else{
-            clearMenu();
-            $("#rss_menu").removeClass("hidden");
-            $("#rss_cont").addClass("selected");
-            $("#menus").css("height", "50px");
-        }
+        clearMenu();
+        closeContainers();
+    	//load_feed();
+        $("#feed_container").removeClass("hidden");
+        $("#rss_cont").addClass("selected");
     });
    
    $("#sett_cont").onButtonTap(function(){
-        clearMenu();
-        $("#sett_cont").addClass("selected");
+        facebookLogout();
+        closeContainers();
+        $("#footer_container").addClass("hidden");
+        $("#login_container").removeClass("hidden");
     });
 }
 

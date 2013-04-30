@@ -39,8 +39,7 @@ function addTappableJQPlugin(){
             this.state.startX = x;
             this.state.startY = y;
             this.state.potentialTap = true;
-            this.onDown()
-            setTimeout(this.checkLong.bind(this), 500);
+            this.onDown();
         },
         move: function(x, y){
             if (this.state.potentialTap && this.movedTooMuch(x, y)){

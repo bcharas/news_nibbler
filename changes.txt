@@ -1,0 +1,11 @@
+iframes are messed up with some sites
+you could hardcode in rules for showing mobile versions of websites, ex
+reddit.com -> m.reddit.com
+you could also have a link to open things in the browser.
+
+you still have click through
+
+can I delete feeds?
+nothing on the settings page
+I can't discover feeds in any meaningful way
+not sure if friend api stuff is implemented yet
