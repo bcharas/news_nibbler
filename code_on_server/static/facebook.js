@@ -63,6 +63,7 @@ function loginUser() {
       accessToken = response.authResponse.accessToken;
       signedRequest = response.authResponse.signedRequest;
       updateUserInfo(response);
+      getUserFriends();
       $("#login_container").addClass("hidden");
       $("#footer_container").removeClass("hidden");    
       $("#feed_container").removeClass("hidden");
