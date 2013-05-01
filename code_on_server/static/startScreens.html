@@ -72,21 +72,25 @@
     <div id='user_container' class = 'hidden'>
         <div id='user_fixed_stuff'>
             <div id='demographics'>
-                <div id= "profile_pic"></div>
+                <div id= "profile_pic" class='pro_pic'></div>
                 <div id="username"></div>
             </div>
             
             <div id='user_menu' class='menu'>
-                <div id= 'user_subs' class='user_tab borbox selected'>Subscriptions</div>
-                <div id = 'user_friends' class='user_tab borbox'>Friends</div>
+                <div id= 'user_subs' class='user_tab borbox'>Subscriptions</div>
+                <div id = 'user_friends' class='selected user_tab borbox'>Friends</div>
             </div>
         </div>
     <!--contains the users RSS and friend data to look through, only one list
     will be visible at a time but you can select  which lsit from the menu-->
         <div id="user_lists">
-            <div id="all_pages" class='user_specific_menu'>
+            <div id="all_pages" class='hidden user_specific_menu'>
             </div>
-            <div id="friends" class='hidden user_specific_menu'>
+            <div id="friends" class='user_specific_menu'>
+                <div class = 'hidden topic'>
+                    <div class="pro_pic"></div>
+                    <div class="friend_name">John FUCKING Doe</div>
+                </div>
             </div>
             <div class="deadspace">i</div>
         </div>

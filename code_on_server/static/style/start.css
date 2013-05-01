@@ -67,7 +67,7 @@ work on link back button etc. */
     height:70px;
 }
 
-#profile_pic{
+.pro_pic{
     display: inline-block;
     background: red;
     margin-top:10px;
@@ -473,6 +473,15 @@ work on link back button etc. */
   color:#2C2C2C;
 }
 
+.friend_name{
+    position: relative;
+    bottom: 20px;
+    font-size:20px;
+    vertical-align:text-top;
+    display:inline-block;
+    text-align: left;
+    margin-left: 10px;
+}
 .seperator{
     margin-top:10px;
     color:#353535;

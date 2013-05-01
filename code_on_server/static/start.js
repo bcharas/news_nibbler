@@ -60,6 +60,25 @@ function footer_interactions(){
     });
 }
 
+function profile_page_interactions(){
+    $("#user_subs").onButtonTap(function(){
+        if(!($("#user_subs").hasClass('selected'))){
+            $("#user_friends").removeClass("selected");
+            $("#user_subs").addClass("selected");
+            $("#friends").addClass("hidden");
+            $("#all_pages").removeClass("hidden");
+        }
+    })
+    $("#user_friends").onButtonTap(function(){
+        if(!($("#user_friends").hasClass("selected"))){
+            $("#user_subs").removeClass("selected");
+            $("#user_friends").addClass("selected");
+            $("#all_pages").addClass("hidden");
+            $("#friends").removeClass("hidden");
+        }
+    })
+}
+
 function footer_sub_menu_interactions(){
     $("#to_user_profile").onButtonTap(function(){
         $("#menus").css("height", "0");
@@ -134,6 +153,7 @@ function login_handler(){
 	
 	footer_interactions();
 	
+    profile_page_interactions();
     //=========================
     // Footer Sub-Menus
     //=========================

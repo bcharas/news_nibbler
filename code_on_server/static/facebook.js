@@ -108,10 +108,14 @@ function getUserFriends() {
 
       for (var i=0; i < friends.length && i < 25; i++) {
          var friend = friends[i];
-
-         markup += '<img src="' + friend.picture.data.url + '"> ' + friend.name + '<br>';
-      }
-      document.getElementById('user-friends').innerHTML = markup;
+         var prof = "<div class ='topic'>"
+         var pic = '<div class= "pro_pic" > <img src="' + friend.picture.data.url + '"> </div> '
+         var name = '<div class= "friend_name">'+ friend.name +'</div></div>'
+         prof.append(pic);
+         prof.append(name);
+         markup.append(prof);
+         }
+      document.getElementById('friends').innerHTML = markup;
     }
   });
 }
