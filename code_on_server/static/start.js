@@ -1,5 +1,6 @@
 function clearMenu(){
     $("#search_cont").removeClass("selected");
+    $("#real_search_cont").removeClass("selected");
     $("#prof_cont").removeClass("selected");
     $("#rss_cont").removeClass("selected");
     $("#sett_cont").removeClass("selected");
@@ -18,6 +19,9 @@ function closeContainers(){
 	}
 	if(!($("#browser_container").hasClass("hidden"))){
 		$("#browser_container").addClass("hidden");
+	}
+    if(!($("#search_container").hasClass("hidden"))){
+		$("#search_container").addClass("hidden");
 	}
 	if(!($("settings_container").hasClass("hidden"))){
 		$("#settings_container").addClass("hidden");
@@ -43,7 +47,12 @@ function footer_interactions(){
         closeContainers();
         $("#browser_container").removeClass("hidden");
     });
-    
+    $("#real_search_cont").onButtonTap(function(){
+        clearMenu();
+        $("#real_search_cont").addClass("selected");
+        closeContainers();
+        $("#search_container").removeClass("hidden");
+    });
     $("#rss_cont").onButtonTap(function(){
         clearMenu();
         closeContainers();
