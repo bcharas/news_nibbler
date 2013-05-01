@@ -69,7 +69,7 @@
     ===============-->
     
     <!--contains the user info and a link to their facebook profile-->
-    <div id='user_container' class = 'hidden'>
+    <div id='user_container' class = ''>
         <div id='user_fixed_stuff'>
             <div id='demographics'>
                 <div id= "profile_pic" class='pro_pic'></div>
@@ -87,7 +87,7 @@
             <div id="all_pages" class='hidden user_specific_menu'>
             </div>
             <div id="friends" class='user_specific_menu'>
-                <div class = 'hidden topic'>
+                <div class = 'topic'>
                     <div class="pro_pic"></div>
                     <div class="friend_name">John FUCKING Doe</div>
                 </div>
@@ -113,7 +113,7 @@
         Login Page
     ===============-->
     
-    <div id='login_container' class=''>
+    <div id='login_container' class='hidden'>
         <div id='app_title'>
             News Nibbler
         </div>
@@ -131,22 +131,6 @@
     <!--============
         Create Page
     ==============-->
-    <div id='create_container' class='hidden'>
-        <div id='create_title'>
-            Create an Acccount:
-        </div>
-        <form class= 'login'>
-            <label for='username'>User Name:</label>
-            <input id="username_create" type='text' name='username'/>
-            <label for= 'password'>Password:</label>
-            <input id="password_create" type="password" name='password'/>
-        </form>
-        <div id='facebook_imports'>
-            <input type='checkbox' id='likes'>Import your Facebook likes?  <br>
-            <input type='checkbox' id='friends'>Import your friends?
-        </div>
-        <div id="create">Create Account</div>
-    </div>
     <!--============
         Settings
     ==============-->
