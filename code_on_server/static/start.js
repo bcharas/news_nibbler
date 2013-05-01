@@ -65,8 +65,9 @@ function profile_page_interactions(){
         if(!($("#user_subs").hasClass('selected'))){
             $("#user_friends").removeClass("selected");
             $("#user_subs").addClass("selected");
-            $("#friends").addClass("hidden");
             $("#all_pages").removeClass("hidden");
+            $("#friends").addClass("hidden");
+
         }
     })
     $("#user_friends").onButtonTap(function(){
