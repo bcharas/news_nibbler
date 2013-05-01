@@ -16,58 +16,47 @@ function post_subscriptions(){
 	////console.log("user feeds length: " + window.user_feeds.length);
 	for (var i = 0; i < window.user_feeds.length; i++){
 		var feed = window.user_feeds[i];
-        profile_subs(feed);
 		post_subscription_listing(feed, directory);
 	}
 	//console.log("directory complete");
 }
 
 //posts the subscription listing for a given feed
-function profile_subs(feed){
-    var container = $("#all_pages");
-    var div = "<div class='topic' ";
-	div += "id='" + feed.feed_name + "_prof'></div>"
-	container.append(div);
-	var to_publish = "<div class='headline'";
-	to_publish += ">";
-	to_publish += feed.feed_name;
-	to_publish += "</div>";
-    to_publish += "<div class = 'date topic_link'>";
-    to_publish += feed.feed_src;
-    to_publish += "</div>";
-	var published_div = $("#" + feed.feed_name+"_prof");
-	published_div.selected = true;
-	published_div.append(to_publish);
-	feed.ignore = false;
-}
 //changed name from publish_feed_listing
-
-
 function post_subscription_listing(feed, container){
 	var div = "<div class='topic' ";
-	div += "id='" + feed.feed_name + "'></div>"
+	div += "id='" + feed.name + "'></div>"
 	container.append(div);
 	var to_publish = "<div class='headline'";
 	to_publish += ">";
-	to_publish += feed.feed_name;
+	to_publish += feed.name;
 	to_publish += "</div>";
     to_publish += "<div class = 'date topic_link'>";
-    to_publish += feed.feed_src;
+    to_publish += feed.url;
     to_publish += "</div>";
-	var published_div = $("#" + feed.feed_name);
+	var published_div = $("#" + feed.name);
 	published_div.selected = true;
 	published_div.append(to_publish);
 	feed.ignore = false;
 	
 	
-	var delete_feed_html = "<div id='" + feed.feed_name + "' class='delete_topic_button'> Unsubscribe </div>";
+	var delete_feed_html = "<div id='" + feed.name + "' class='delete_topic_button'> Unsubscribe </div>";
 	published_div.append(delete_feed_html);
 	
-	var delete_this_feed = function(){
-								delete_feed(feed.feed_name);
-							};
-	var delete_button = $("#" + feed.feed_name);
-	delete_button.onButtonTap(delete_this_feed);
+	var delete_this_feed = 
+    function() {
+			delete_feed(feed.name);
+      $.ajax({
+        type: "post",
+        url: "/deleteCategory",
+        data: { userID: fbUserID, cat_name: feed.name, cat_url: feed.url}, 
+        success: function(data) {
+          console.log(data);
+        }
+      });
+    }
+	var delete_button = $("#" + feed.name);
+	delete_button.click(delete_this_feed);
 }
 
 //builds the box that allows users to subscribe to new feeds
@@ -94,13 +83,14 @@ function new_subscription_input(){
 //changed name from generate_feed
 function subscribe(){
 	console.log("generating!");
-	var input_name = $("#name_input").val();
+	console.log("User ID: " + fbUserID);
+  var input_name = $("#name_input").val();
 	var input_url = $("#url_input").val();
-	if (input_name == ""){
+	if (input_name === ""){
 		console.log("Feeds must be named before they can be added");
 		return;
 	}
-	if (input_url == ""){
+	if (input_url === ""){
 		console.log("No feed URL supplied for generator");
 		return;
 	}
@@ -113,5 +103,13 @@ function subscribe(){
 	*/
 	
 	add_new_feed(input_name, input_url);
-	
+  
+  $.ajax({
+    type: "post",
+    url: "/addCategory",
+    data: { userID: fbUserID, cat_name: input_name, cat_url: input_url}, 
+    success: function(data) {
+      console.log(data);
+    }
+  });
 }

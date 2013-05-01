@@ -1,10 +1,31 @@
 //handles reading/parsing the entries from all user feeds
 
+function getFeedsFromMongo() {
+  if (fbUserID !== undefined) {
+    $.ajax({
+      type: "get",
+      url: "/getFeeds/" + fbUserID, 
+      success: function(data) {
+        window.user_feeds = data[0].topics;
+        for (var i = 0; i < window.user_feeds.length; i++) {
+          window.user_feeds[i].connection = 
+            new google.feeds.Feed(window.user_feeds[i].url);
+        }
+        post_subscriptions();
+        parse_all_feeds();
+        new_subscription_input(); 
+      }
+    });
+  }
+}
+
 //parses current entries of user feeds, then calls to post them to feed page
 //changed name from load_all_feeds
 function parse_all_feeds(){
 	window.active_feeds = [];
+
 	window.num_feeds = window.user_feeds.length;
+
 	var first_feed_info = window.user_feeds[0];
 	if (first_feed_info.ignore){
 		parse_remaining_feeds(0);
@@ -12,6 +33,7 @@ function parse_all_feeds(){
 	else{
 		//console.log("\nloading: " + first_feed_info.feed_name);
 		var first_feed = first_feed_info.connection;
+    console.log("First feed: " + first_feed);
 		first_feed.setNumEntries(4);
 		var load_contents = function(result){
 										parse_feed_entries(result, 0);

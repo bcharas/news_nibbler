@@ -1,6 +1,7 @@
 var accessToken;
 var signedRequest;
 var response;
+var fbUserID;
   
 function handleStatusChange(response) {
   document.body.className = response.authResponse ? 'connected' : 'not_connected';
@@ -18,22 +19,6 @@ window.fbAsyncInit = function() {
     xfbml      : true  // parse XFBML
   });
 
-  FB.getLoginStatus(function(response) {
-    if (response.status === 'connected') {
-      accessToken = response.authResponse.accessToken;
-      signedRequest = response.authResponse.signedRequest;
-      updateUserInfo(response);
-      $("#login_container").addClass("hidden");
-      $("#footer_container").removeClass("hidden");    
-      $("#feed_container").removeClass("hidden");
-    }
-    else {
-      //$("#login_container").removeClass("hidden");
-     // $("#footer_container").addClass("hidden");    
-     // $("#feed_container").addClass("hidden");
-    }
-  });
-
   FB.Event.subscribe('auth.statusChange', handleStatusChange);
 
 };
@@ -47,29 +32,72 @@ window.fbAsyncInit = function() {
    ref.parentNode.insertBefore(js, ref);
 }(document));
 
-function isAndroid(){
-    return navigator.userAgent.indexOf("Android") !== -1;
-}
-
-function isIOS(){
-   return  !!(navigator.userAgent.match(/iPhone/i) ||
-           navigator.userAgent.match(/iPod/i) ||
-           navigator.userAgent.match(/iPad/i));
-}
-
 function loginUser() {
   FB.getLoginStatus(function(response) {
     if (response.status === 'connected') {
       accessToken = response.authResponse.accessToken;
       signedRequest = response.authResponse.signedRequest;
       updateUserInfo(response);
-      getUserFriends();
       $("#login_container").addClass("hidden");
       $("#footer_container").removeClass("hidden");    
       $("#feed_container").removeClass("hidden");
+      fbUserID = response.authResponse.userID;
+      $.ajax({
+        type: "post",
+        url: "/addUserAccount",
+        data : {userID : response.authResponse.userID},
+        success: function(data) {
+          console.log(data);
+          if (data.success === true) {
+            $.ajax({
+              type: "post",
+              url: "/addCategory",
+              data: { userID: fbUserID, 
+                      cat_name: "Reddit", 
+                      cat_url: "http://www.reddit.com/.rss"},
+              success: function(data) {
+                console.log(data);
+                $.ajax({
+                  type: "post",
+                  url: "/addCategory",
+                  data: { userID: fbUserID, 
+                          cat_name: "Digg", 
+                          cat_url: "http://www.digg.com/rss/index.xml"},
+                  success: function(data) {
+                    console.log(data);
+                    $.ajax({
+                      type: "post",
+                      url: "/addCategory",
+                      data: { userID: fbUserID, 
+                              cat_name: "CNN", 
+                              cat_url: "http://rss.cnn.com/rss/cnn_topstories.rss"},
+                      success: function(data) {
+                        console.log(data);
+                        $.ajax({
+                          type: "post",
+                          url: "/addCategory",
+                          data: { userID: fbUserID, 
+                                  cat_name: "Cooking_with_Friends", 
+                                  cat_url: "http://www.cookingwithfriendsclub.com/index.php?/rss/blog"},
+                          success: function(data) {
+                            console.log(data);
+                            getFeedsFromMongo();
+                          }     
+                        });
+                      }     
+                    });
+                  }     
+                });
+              }     
+            });
+          }
+          else {
+            getFeedsFromMongo();
+          }
+        }
+      });
     }
     else {
-      console.log("NOT LOGGED IN");
       FB.login(function(response) { 
         if (response.authResponse !== null) {
           accessToken = response.authResponse.accessToken;
@@ -77,8 +105,63 @@ function loginUser() {
           $("#login_container").addClass("hidden");
           $("#footer_container").removeClass("hidden");    
           $("#feed_container").removeClass("hidden");
-          //window.top.location = '/static/startScreens.html';
-          //console.log(window.top.location);
+          fbUserID = response.authResponse.userID;
+          //Gets user account from our Mongo database
+          console.log("About to send ajax command")
+          $.ajax({
+            type: "post",
+            url: "/addUserAccount",
+            data : {userID : response.authResponse.userID},
+            success: function(data) {
+              console.log(data);
+              if (data.success === true) {
+                $.ajax({
+                  type: "post",
+                  url: "/addCategory",
+                  data: { userID: fbUserID, 
+                          cat_name: "Reddit", 
+                          cat_url: "http://www.reddit.com/.rss"},
+                  success: function(data) {
+                    console.log(data);
+                    $.ajax({
+                      type: "post",
+                      url: "/addCategory",
+                      data: { userID: fbUserID, 
+                              cat_name: "Digg", 
+                              cat_url: "http://www.digg.com/rss/index.xml"},
+                      success: function(data) {
+                        console.log(data);
+                        $.ajax({
+                          type: "post",
+                          url: "/addCategory",
+                          data: { userID: fbUserID, 
+                                  cat_name: "CNN", 
+                                  cat_url: "http://rss.cnn.com/rss/cnn_topstories.rss"},
+                          success: function(data) {
+                            console.log(data);
+                            $.ajax({
+                              type: "post",
+                              url: "/addCategory",
+                              data: { userID: fbUserID, 
+                                      cat_name: "Cooking_with_Friends", 
+                                      cat_url: "http://www.cookingwithfriendsclub.com/index.php?/rss/blog"},
+                              success: function(data) {
+                                console.log(data);
+                                getFeedsFromMongo();
+                              }     
+                            });
+                          }     
+                        });
+                      }     
+                    });
+                  }     
+                });
+              }
+              else {
+                getFeedsFromMongo();
+              }
+            }
+          });
         }
       }, 
       {
@@ -109,13 +192,9 @@ function getUserFriends() {
 
       for (var i=0; i < friends.length && i < 25; i++) {
          var friend = friends[i];
-         var prof = "<div class ='topic'>"
-         var pic = '<div class= "pro_pic" > <img src="' + friend.picture.data.url + '"> </div> '
-         var name = '<div class= "friend_name">'+ friend.name +'</div></div>'
-         prof.append(pic);
-         prof.append(name);
-         markup.append(prof);
-         }
+
+         markup += '<img src="' + friend.picture.data.url + '"> ' + friend.name + '<br>';
+      }
       document.getElementById('friends').innerHTML = markup;
     }
   });

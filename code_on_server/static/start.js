@@ -1,7 +1,13 @@
 function clearMenu(){
     $("#search_cont").removeClass("selected");
-    $("#prof_cont").removeClass("selected");
-    $("#rss_cont").removeClass("selected");
+    if(($("#prof_cont").hasClass("selected"))){
+        $("#prof_cont").removeClass("selected");
+        $("#profile_menu").addClass("hidden");
+    }
+    if($("#rss_cont").hasClass("selected")){
+        $("#rss_cont").removeClass("selected");
+        $("#rss_menu").addClass("hidden");
+    }
     $("#sett_cont").removeClass("selected");
     $("#menus").css("height", "0");
 }
@@ -32,10 +38,15 @@ function closeContainers(){
 
 function footer_interactions(){
 	$("#prof_cont").onButtonTap(function(){
-        clearMenu();
-        $("#prof_cont").addClass("selected");
-        closeContainers();
-        $("#user_container").removeClass("hidden");
+        if(!($("#prof_cont").hasClass("selected"))){
+            clearMenu();
+    		$("#profile_menu").removeClass("hidden");
+            $("#prof_cont").addClass("selected");
+    		$("#menus").css("height", "50px");
+        }
+        else{
+            clearMenu();
+        }
 	});
     $("#search_cont").onButtonTap(function(){
         clearMenu();
@@ -45,38 +56,21 @@ function footer_interactions(){
     });
     
     $("#rss_cont").onButtonTap(function(){
-        clearMenu();
-        closeContainers();
-    	//load_feed();
-        $("#feed_container").removeClass("hidden");
-        $("#rss_cont").addClass("selected");
+        if($("#rss_cont").hasClass("selected")){
+            clearMenu();
+        }
+        else{
+            clearMenu();
+            $("#rss_menu").removeClass("hidden");
+            $("#rss_cont").addClass("selected");
+            $("#menus").css("height", "50px");
+        }
     });
    
    $("#sett_cont").onButtonTap(function(){
-        facebookLogout();
-        closeContainers();
-        $("#footer_container").addClass("hidden");
-        $("#login_container").removeClass("hidden");
+        clearMenu();
+        $("#sett_cont").addClass("selected");
     });
-}
-
-function profile_page_interactions(){
-    $("#user_subs").onButtonTap(function(){
-        if(!($("#user_subs").hasClass('selected'))){
-            $("#user_friends").removeClass("selected");
-            $("#user_subs").addClass("selected");
-            $("#friends").addClass("hidden");
-            $("#all_pages").removeClass("hidden");
-        }
-    })
-    $("#user_friends").onButtonTap(function(){
-        if(!($("#user_friends").hasClass("selected"))){
-            $("#user_subs").removeClass("selected");
-            $("#user_friends").addClass("selected");
-            $("#all_pages").addClass("hidden");
-            $("#friends").removeClass("hidden");
-        }
-    })
 }
 
 function footer_sub_menu_interactions(){
@@ -85,6 +79,7 @@ function footer_sub_menu_interactions(){
         closeContainers();
         $("#user_container").removeClass("hidden");
         //profile page
+        getUserFriends();
     });
     $(".logout").onButtonTap(function(){
         facebookLogout(); 
@@ -127,6 +122,7 @@ function footer_sub_menu_interactions(){
 function login_handler(){
 	$("#login").onButtonTap(function(){
     loginUser();
+    //refresh_feeds();
 		/*$("#login_container").addClass("hidden");
 		$("#footer_container").removeClass("hidden");            
 		$("#feed_container").removeClass("hidden");
@@ -153,7 +149,6 @@ function login_handler(){
 	
 	footer_interactions();
 	
-    profile_page_interactions();
     //=========================
     // Footer Sub-Menus
     //=========================

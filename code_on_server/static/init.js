@@ -26,10 +26,10 @@ function default_feed_directory(){
 //initializes feed page
 //changed name from init_feeds
 function init(){
-	default_feed_directory();
+	//default_feed_directory();
 	post_subscriptions();
 	parse_all_feeds();
 	new_subscription_input();
 }
 
-google.setOnLoadCallback(init);
+//google.setOnLoadCallback(init);
