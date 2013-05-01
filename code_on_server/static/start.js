@@ -177,5 +177,3 @@ function login_handler(){
 	*/
 	
 })
-
-

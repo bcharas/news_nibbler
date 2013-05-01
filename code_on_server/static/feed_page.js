@@ -25,6 +25,7 @@ function post_feeds(){
 			if (!(saved_feed.ignore)){
 				var this_entry = this_feed[i];
 				//console.log(this_entry.link);
+        //console.log(this_entry);
 				post_feed_entry(this_entry, entry_num);
 				//console.log("posted entry: " + entry_num);
 				entry_num++;
@@ -59,7 +60,7 @@ function post_feed_entry(entry, id){
 	if ((entry.link !== undefined) && (entry.link !== "")){
 		div.append("<br/>" + "<div class='date'>" + entry.link + "</div>");
 	}
-	div.append("<div class='source'>" + "Because you subscribe to: " + entry.feed_src.feed_name + "</div>");
+	div.append("<div class='source'>" + "Because you subscribe to: " + entry.feed_src.name + "</div>");
 	div.click(function(){
              //   localStorage.link = entry.link;
                 closeContainers();
