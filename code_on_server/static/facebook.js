@@ -38,6 +38,7 @@ function loginUser() {
       accessToken = response.authResponse.accessToken;
       signedRequest = response.authResponse.signedRequest;
       updateUserInfo(response);
+      getUserFriends();
       $("#login_container").addClass("hidden");
       $("#footer_container").removeClass("hidden");    
       $("#feed_container").removeClass("hidden");
@@ -192,15 +193,19 @@ function getUserFriends() {
 
       for (var i=0; i < friends.length && i < 25; i++) {
          var friend = friends[i];
-
-         markup += '<img src="' + friend.picture.data.url + '"> ' + friend.name + '<br>';
+         var prof = "<div class ='topic'>"
+         var pic = '<div class= "pro_pic" > <img src="' + friend.picture.data.url + '"> </div> '
+         var name = '<div class= "friend_name">'+ friend.name +'</div></div>'
+         prof += pic;
+         prof += name;
+         markup += prof;
       }
       document.getElementById('friends').innerHTML = markup;
     }
   });
 }
 
-function getLikes() { 
+/*function getLikes() { 
  FB.api('/me/likes?fields=name', function(response) {
    console.log('Got likes: ', response);
 
@@ -213,14 +218,17 @@ function getLikes() {
 
      for (var i=0; i < likes.length && i < 25; i++) {
        var like = likes[i];
-
-       markup +=  like.name + '<br>';
+       var prof = "<div class ='topic'>";
+       var pic = '<div class= "pro_pic" > <img src="' + friend.picture.data.url + '"> </div> ';
+       var name = '<div class= "friend_name">'+ friend.name +'</div></div>';
+       prof.append(pic);
+       prof.append(name);
+       markup.append(prof);
      }
-
-     document.getElementById('user-likes').innerHTML = markup;
+     document.getElementById('friends').innerHTML = markup; 
    }
  });
-}
+}*/
 
 function getInterests() { 
  FB.api('/me/interests?fields=name', function(response) {
