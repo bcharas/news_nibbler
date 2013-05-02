@@ -16,9 +16,28 @@ function post_subscriptions(){
 	////console.log("user feeds length: " + window.user_feeds.length);
 	for (var i = 0; i < window.user_feeds.length; i++){
 		var feed = window.user_feeds[i];
+    profile_subs(feed);
 		post_subscription_listing(feed, directory);
 	}
 	//console.log("directory complete");
+}
+
+function profile_subs(feed){
+    var container = $("#all_pages");
+    var div = "<div class='topic' ";
+  div += "id='" + feed.name + "_prof'></div>"
+  container.append(div);
+  var to_publish = "<div class='headline'";
+  to_publish += ">";
+  to_publish += feed.name;
+  to_publish += "</div>";
+    to_publish += "<div class = 'date topic_link'>";
+    to_publish += feed.url;
+    to_publish += "</div>";
+  var published_div = $("#" + feed.name+"_prof");
+  published_div.selected = true;
+  published_div.append(to_publish);
+  feed.ignore = false;
 }
 
 //posts the subscription listing for a given feed
@@ -56,7 +75,7 @@ function post_subscription_listing(feed, container){
       });
     }
 	var delete_button = $("#" + feed.name);
-	delete_button.click(delete_this_feed);
+	delete_button.onButtonTap(delete_this_feed);
 }
 
 //builds the box that allows users to subscribe to new feeds
