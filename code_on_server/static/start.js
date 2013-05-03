@@ -80,6 +80,8 @@ function reset_profile_page(){
         $("friends").addClass('hidden');
     }
     if(!($("friend_feed").hasClass('hidden'))){
+        $("#target_friend_pic").empty();
+        $("#target_friend_name").empty();
         $("friend_feed").addClass('hidden');
     }
 }
