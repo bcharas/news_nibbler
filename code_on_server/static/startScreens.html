@@ -52,6 +52,7 @@
 
     <div id='feed_container' class='hidden'>
       <div id='feed_box'></div>
+      
       <div class='deadspace'>i</div>
     </div>
 
@@ -69,7 +70,7 @@
     ===============-->
     
     <!--contains the user info and a link to their facebook profile-->
-    <div id='user_container' class = 'hidden'>
+    <div id='user_container' class = ''>
         <div id='user_fixed_stuff'>
             <div id='demographics'>
                 <div id= "profile_pic" class='pro_pic'></div>
@@ -86,11 +87,20 @@
         <div id="user_lists">
             <div id="all_pages" class='hidden user_specific_menu'>
             </div>
-            <div id="friends" class='user_specific_menu'>
-                <div class = 'topic'>
-                    <div class="pro_pic"></div>
-                    <div class="friend_name"></div>
+                <div id = 'friend_feed' class=''>
+                    <div id='selected_friend_title'>
+                        <div id='back_to_friends'class= 'back_button borbox'>
+                            <img id="back_prpf" class= 'icon' src="./style/icons/back.png" />
+                        </div>
+                        <div id = 'target_friend_pic'class="pro_pic"></div>
+                        <div id = 'target_friend_name' class="friend_name">John Fucking Doe</div>
+                        <div id='friends_subscriptions'></div>
+                    </div>
                 </div>
+            <div id="friends" class='user_specific_menu hidden'>
+                <div id = 'target_friend_pic'class="pro_pic"></div>
+                <div id = 'target_friend_name' class="friend_name">NOT John Fucking Doe</div>
+                
             </div>
             <div class="deadspace">i</div>
         </div>
@@ -99,6 +109,7 @@
     <div id ='search_container' class ='hidden'>
         <div id= 'search_for_feeds'></div>
         <div id= 'search_results'></div>
+        <div class="deadspace">i</div>
     </div>
     
     <!--=============
@@ -118,7 +129,7 @@
         Login Page
     ===============-->
     
-    <div id='login_container' class=''>
+    <div id='login_container' class='hidden'>
         <div id='app_title'>
             News Nibbler
         </div>

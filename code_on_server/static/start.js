@@ -32,12 +32,15 @@ function closeContainers(){
     if(!($("article_container").hasClass("hidden"))){
 		$("#article_container").addClass("hidden");
 	}
+    
 }
 
 function footer_interactions(){
 	$("#prof_cont").onButtonTap(function(){
         clearMenu();
         $("#prof_cont").addClass("selected");
+        reset_profile_page();
+        $("#friends").removeClass('hidden');
         closeContainers();
         $("#user_container").removeClass("hidden");
 	});
@@ -69,23 +72,41 @@ function footer_interactions(){
     });
 }
 
+function reset_profile_page(){
+    if(!($("#user_subs").hasClass('hidden'))){
+        $("#user_subs").addClass('hidden');
+    }
+    if(!($("friends").hasClass('hidden'))){
+        $("friends").addClass('hidden');
+    }
+    if(!($("friend_feed").hasClass('hidden'))){
+        $("friend_feed").addClass('hidden');
+    }
+}
+
 function profile_page_interactions(){
     $("#user_subs").onButtonTap(function(){
         if(!($("#user_subs").hasClass('selected'))){
+            reset_profile_page();
             $("#user_friends").removeClass("selected");
             $("#user_subs").addClass("selected");
             $("#all_pages").removeClass("hidden");
-            $("#friends").addClass("hidden");
 
         }
     })
     $("#user_friends").onButtonTap(function(){
         if(!($("#user_friends").hasClass("selected"))){
+            reset_profile_page();
             $("#user_subs").removeClass("selected");
             $("#user_friends").addClass("selected");
-            $("#all_pages").addClass("hidden");
             $("#friends").removeClass("hidden");
         }
+    })
+    $("#back_to_friends").onButtonTap(function(){
+        reset_profile_page();
+        $("#target_friend_pic").empty();
+        $("#target_friend_name").empty();
+        $("#friends").removeClass('hidden');
     })
 }
 

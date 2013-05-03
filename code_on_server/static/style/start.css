@@ -281,7 +281,7 @@ work on link back button etc. */
     border-top:0;
     -moz-border-bottom-right-radius:25px;
     padding-top:5px;
-    padding:left:5px;
+    padding-left:5px;
     padding-right:10px;
     color: #000000;
     border: 1px solid #1A1A1A;
@@ -563,8 +563,47 @@ work on link back button etc. */
   border: 2px solid black;
 }
 
+#selected_friend_title{
+    background: #A6A6A6;
+    text-align:center;
+    border-bottom: 2px solid #1A1A1A;
+    box-shadow:1px 1px 1px rgba(0,0,0,.3);
+}
+
+#back_to_friends{
+    position:relative;
+    top:0;
+    left:0;
+    text-align:center;
+    background:#3B2BAA;;
+    height: 60px;
+    width:60px;
+    text-align: center;
+    border-bottom-right-radius: 25px; 
+    border-top:0;
+    -moz-border-bottom-right-radius:25px;
+    padding-top:10px;
+    padding-left:5px;
+    padding-right:10px;
+    color: #000000;
+    border: 1px solid #1A1A1A;
+    display: block;
+    word-wrap: break-word; 
+    
+
+}
+
+#target_friend_pic{
+    margin-left:-40px;
+    display: inline-block;
+}
+
+#target_friend_name{
+    display:inline-block;
+    
+}
+
 #user_lists{
-    width
     overflow-y:hidden;
     position:relative;
     top:110px;
